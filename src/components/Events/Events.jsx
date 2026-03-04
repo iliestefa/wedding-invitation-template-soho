@@ -1,53 +1,57 @@
-import {
-  CEREMONY_TIME,
-  CEREMONY_VENUE_NAME,
-  CEREMONY_VENUE_ADDRESS,
-  CEREMONY_MAPS_LINK,
-  CEREMONY_MAPS_EMBED_SRC,
-  RECEPTION_TIME,
-  RECEPTION_VENUE_NAME,
-  RECEPTION_VENUE_ADDRESS,
-  RECEPTION_MAPS_LINK,
-  RECEPTION_MAPS_EMBED_SRC,
-} from '../../constants';
+import { useTemplateData } from '../../context/TemplateContext';
 
 import SectionHeader from '../shared/SectionHeader/SectionHeader';
 import EventCard from '../Ceremony/EventCard/EventCard';
 
 import './Events.scss';
 
-const Events = () => (
-  <section className="events" id="ceremony">
-    <div className="events__inner">
-      <SectionHeader eyebrow="Nos acompañas" title="Ceremonia &amp; Recepción" />
+const Events = () => {
+  const {
+    ceremonyTime,
+    ceremonyVenueName,
+    ceremonyVenueAddress,
+    ceremonyMapsLink,
+    ceremonyMapsEmbedSrc,
+    receptionTime,
+    receptionVenueName,
+    receptionVenueAddress,
+    receptionMapsLink,
+    receptionMapsEmbedSrc,
+  } = useTemplateData();
 
-      <div className="events__grid">
-        <div className="events__col">
-          <EventCard
-            eyebrow="Ceremonia Religiosa"
-            venueName={CEREMONY_VENUE_NAME}
-            time={CEREMONY_TIME}
-            address={CEREMONY_VENUE_ADDRESS}
-            mapsLink={CEREMONY_MAPS_LINK}
-            mapsEmbedSrc={CEREMONY_MAPS_EMBED_SRC}
-          />
-        </div>
+  return (
+    <section className="events" id="ceremony">
+      <div className="events__inner">
+        <SectionHeader eyebrow="Nos acompañas" title="Ceremonia &amp; Recepción" />
 
-        <div className="events__divider" aria-hidden="true" />
+        <div className="events__grid">
+          <div className="events__col">
+            <EventCard
+              eyebrow="Ceremonia Religiosa"
+              venueName={ceremonyVenueName}
+              time={ceremonyTime}
+              address={ceremonyVenueAddress}
+              mapsLink={ceremonyMapsLink}
+              mapsEmbedSrc={ceremonyMapsEmbedSrc}
+            />
+          </div>
 
-        <div className="events__col">
-          <EventCard
-            eyebrow="Fiesta de Recepción"
-            venueName={RECEPTION_VENUE_NAME}
-            time={RECEPTION_TIME}
-            address={RECEPTION_VENUE_ADDRESS}
-            mapsLink={RECEPTION_MAPS_LINK}
-            mapsEmbedSrc={RECEPTION_MAPS_EMBED_SRC}
-          />
+          <div className="events__divider" aria-hidden="true" />
+
+          <div className="events__col">
+            <EventCard
+              eyebrow="Fiesta de Recepción"
+              venueName={receptionVenueName}
+              time={receptionTime}
+              address={receptionVenueAddress}
+              mapsLink={receptionMapsLink}
+              mapsEmbedSrc={receptionMapsEmbedSrc}
+            />
+          </div>
         </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 export default Events;

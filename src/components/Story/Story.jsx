@@ -1,26 +1,28 @@
-import { STORY_ITEMS, STORY_INTRO, COUPLE_NAMES } from '../../constants';
 import useIntersectionObserver from '../../hooks/useIntersectionObserver';
+
+import { useTemplateData } from '../../context/TemplateContext';
 
 import SectionHeader from '../shared/SectionHeader/SectionHeader';
 import StoryTimelineItem from './StoryTimelineItem/StoryTimelineItem';
 
 import './Story.scss';
 
-const storyItemsWithAlign = STORY_ITEMS.map((item, index) => ({
-  ...item,
-  align: index % 2 === 0 ? 'left' : 'right',
-}));
-
 const Story = () => {
+  const { storyItems, storyIntro, coupleNames } = useTemplateData();
   const introRef = useIntersectionObserver();
+
+  const storyItemsWithAlign = storyItems.map((item, index) => ({
+    ...item,
+    align: index % 2 === 0 ? 'left' : 'right',
+  }));
 
   return (
     <section className="story" id="story">
       <div className="story__inner">
-        <SectionHeader eyebrow="Nuestra Historia" title={COUPLE_NAMES} />
+        <SectionHeader eyebrow="Nuestra Historia" title={coupleNames} />
 
         <p ref={introRef} className="story__intro">
-          {STORY_INTRO}
+          {storyIntro}
         </p>
 
         <div className="story__timeline">

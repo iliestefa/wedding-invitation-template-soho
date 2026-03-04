@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-import { BRIDE_NAME, GROOM_NAME } from '../../constants';
+import { useTemplateData } from '../../context/TemplateContext';
 
 import './Navigation.scss';
 
@@ -14,6 +14,7 @@ const NAV_LINKS = [
 ];
 
 const Navigation = () => {
+  const { brideName, groomName } = useTemplateData();
   const [isScrolled, setIsScrolled]   = useState(false);
   const [menuOpen, setMenuOpen]       = useState(false);
 
@@ -37,9 +38,9 @@ const Navigation = () => {
     <header className={`nav ${isScrolled ? 'nav--scrolled' : ''}`}>
       <div className="nav__inner">
         <a href="#hero" className="nav__monogram" aria-label="Inicio">
-          <span className="nav__monogram-text">{BRIDE_NAME[0]}</span>
+          <span className="nav__monogram-text">{brideName[0]}</span>
           <span className="nav__monogram-amp">&amp;</span>
-          <span className="nav__monogram-text">{GROOM_NAME[0]}</span>
+          <span className="nav__monogram-text">{groomName[0]}</span>
         </a>
 
         <nav className="nav__desktop" aria-label="Navegación principal">

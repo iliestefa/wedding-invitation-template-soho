@@ -1,8 +1,23 @@
 {
-  "name": "web-boda-v3",
-  "private": true,
-  "version": "0.0.0",
+  "name": "@iliestefa/wedding-soho",
+  "version": "1.0.0",
   "type": "module",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "exports": {
+    "./components/*": "./src/components/*",
+    "./styles/*": "./src/styles/*",
+    "./hooks/*": "./src/hooks/*",
+    "./utils/*": "./src/utils/*",
+    "./constants/*": "./src/constants/*",
+    "./context": "./src/context/TemplateContext.jsx"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "react-dom": ">=18",
+    "prop-types": ">=15"
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",

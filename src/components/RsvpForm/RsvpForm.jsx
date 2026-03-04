@@ -4,10 +4,11 @@ import {
   FORM_LABELS,
   FORM_PLACEHOLDERS,
   FORM_STATUS,
-  RSVP_DEADLINE,
 } from '../../constants';
 import useRsvpForm from '../../hooks/useRsvpForm';
 import useIntersectionObserver from '../../hooks/useIntersectionObserver';
+
+import { useTemplateData } from '../../context/TemplateContext';
 
 import SectionHeader from '../shared/SectionHeader/SectionHeader';
 import FormField from './FormField/FormField';
@@ -20,6 +21,7 @@ const attendanceOptions = ATTENDANCE_OPTIONS.map(({ id, value, label }) => (
 ));
 
 const RsvpForm = () => {
+  const { rsvpDeadline } = useTemplateData();
   const { formState, errors, status, handleFieldChange, handleSubmit } = useRsvpForm();
   const revealRef = useIntersectionObserver();
 
@@ -29,7 +31,7 @@ const RsvpForm = () => {
   return (
     <section className="rsvp" id="rsvp">
       <div className="rsvp__inner">
-        <SectionHeader eyebrow={`Confirmar antes del ${RSVP_DEADLINE}`} title="¿Nos acompañas?" />
+        <SectionHeader eyebrow={`Confirmar antes del ${rsvpDeadline}`} title="¿Nos acompañas?" />
 
         <form
           ref={revealRef}

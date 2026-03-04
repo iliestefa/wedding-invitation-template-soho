@@ -1,5 +1,6 @@
-import { BANK_ACCOUNTS, GIFT_REGISTRY_INTRO } from '../../constants';
 import useIntersectionObserver from '../../hooks/useIntersectionObserver';
+
+import { useTemplateData } from '../../context/TemplateContext';
 
 import SectionHeader from '../shared/SectionHeader/SectionHeader';
 import BankAccountCard from './BankAccountCard/BankAccountCard';
@@ -7,9 +8,10 @@ import BankAccountCard from './BankAccountCard/BankAccountCard';
 import './GiftRegistry.scss';
 
 const GiftRegistry = () => {
+  const { bankAccounts, giftRegistryIntro } = useTemplateData();
   const revealRef = useIntersectionObserver();
 
-  const accountCards = BANK_ACCOUNTS.map(({ id, bankName, ownerName, accountAlias, cbu, accountType, accountNumberLabel }) => (
+  const accountCards = bankAccounts.map(({ id, bankName, ownerName, accountAlias, cbu, accountType, accountNumberLabel }) => (
     <BankAccountCard
       key={id}
       bankName={bankName}
@@ -27,7 +29,7 @@ const GiftRegistry = () => {
         <SectionHeader eyebrow="Cuentas para Regalo" title="Su presencia es el regalo" />
 
         <p ref={revealRef} className="gift-registry__intro">
-          {GIFT_REGISTRY_INTRO}
+          {giftRegistryIntro}
         </p>
 
         <div className="gift-registry__cards">
