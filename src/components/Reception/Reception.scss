@@ -1,0 +1,9 @@
+.reception {
+  background-color: $color-bg;
+  @include section-padding;
+
+  &__inner {
+    @include section-inner;
+    max-width: 760px;
+  }
+}

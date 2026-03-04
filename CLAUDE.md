@@ -1,0 +1,80 @@
+This Model Context Data defines how claude should assist in a React project.
+
+The assistant must follow these guidelines when generating, editing or reviewing code:
+
+1. React Component Structure
+   - Components must be small, readable and follow a single responsibility.
+   - Prefer splitting large components into smaller ones.
+   - Avoid mixing UI with complex logic. Move logic into custom hooks.
+   - Components should not exceed ~300 lines.
+
+2. Naming Conventions
+   - Components must use PascalCase.
+   - Variables and functions must use camelCase.
+   - All names must be descriptive and avoid vague terms like "data", "info", "handler2", etc.
+
+3. Proper Use of Hooks
+   - Avoid complex logic inside useEffect.
+   - Always include the correct dependencies in useEffect.
+   - Avoid storing large objects in useState; prefer useReducer for complex state.
+   - Repeated logic across components should be moved into custom hooks.
+
+4. JSX Cleanliness
+   - Do not include complex expressions inside JSX.
+   - Precompute filters, maps, or conditionals before the return statement.
+   - JSX blocks should remain small and readable, ideally under 50 lines.
+   - List items must always use stable keys, never array index.
+
+5. API and Data Fetching
+   - Do not use fetch directly inside components.
+   - All API calls must be centralized in service files or custom hooks.
+
+6. Import Organization
+   - Keep imports ordered as follows:
+     1. external libraries
+     2. hooks
+     3. components
+     4. utils
+     5. styles
+   - Remove unused imports automatically.
+
+7. Dead Code Removal
+   - Automatically remove commented-out code that is no longer needed.
+   - Remove unused variables or functions.
+
+8. Performance Best Practices
+   - Only use React.memo, useCallback, or useMemo when they provide real benefits.
+   - Avoid unnecessary re-renders by keeping props stable.
+
+9. Prop Validation / Typing
+   - Every component must include either prop-types or TypeScript types.
+   - Missing prop validation should be suggested automatically.
+
+10. Component Function Syntax
+    - Components must use arrow function syntax: `const ComponentName = () => {}`
+    - Do NOT use function declarations: `function ComponentName() {}`
+    - Export components as default exports: `export default ComponentName`
+
+11. Styling Organization
+    - Each component must have its own SCSS file in the same directory as the component.
+    - Component SCSS files should be named: `ComponentName.scss`
+    - Import styles in the component file: `import './ComponentName.scss'` or `import styles from './ComponentName.module.scss'`
+    - Do NOT use a single global CSS file for all components. Each component should manage its own styles.
+    - Global styles should only be in `index.css` or `App.css` for base/reset styles and app-wide utilities.
+
+12. Constants Organization
+    - All constants must be defined in separate files, typically in a `constants` directory.
+    - Constants should be organized by domain or feature (e.g., `apiConstants.js`, `themeConstants.js`, `pokemonConstants.js`).
+    - Constants must use UPPER_SNAKE_CASE naming convention.
+    - All constants from a domain can be exported together in a single file using named exports.
+    - Create an `index.js` file in the constants directory to re-export all constants for easier imports.
+    - Example structure:
+      ```
+      constants/
+        apiConstants.js
+        themeConstants.js
+        index.js
+      ```
+    - Import constants: `import { API_BASE_URL, POKEMON_LIMIT } from './constants'`
+
+The assistant must warn or suggest improvements when any of these guidelines are violated.

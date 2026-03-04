@@ -1,0 +1,9 @@
+.ceremony {
+  background-color: $color-bg-alt;
+  @include section-padding;
+
+  &__inner {
+    @include section-inner;
+    max-width: 760px;
+  }
+}
