@@ -155,6 +155,15 @@
     }
   }
 
+  // Cuando el menú móvil está abierto: forzar fondo y colores oscuros en el header
+  &:has(.nav__mobile--open) {
+    background-color: rgba(250, 245, 239, 0.97) !important;
+    backdrop-filter: blur(12px) !important;
+
+    .nav__link { color: $color-text !important; }
+    .nav__burger span { background: $color-text !important; }
+  }
+
   &__mobile-list {
     list-style: none;
     margin: 0;
