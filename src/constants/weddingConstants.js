@@ -19,7 +19,7 @@ export const CEREMONY_MAPS_EMBED_SRC =
 
 // ─── Recepcion ────────────────────────────────────────────────────────────────
 export const RECEPTION_TIME = "20:00 hrs";
-export const RECEPTION_VENUE_NAME = "Palacio Duhau Park Hyatt";
+export const RECEPTION_VENUE_NAME = "Palacio Duhau";
 export const RECEPTION_VENUE_ADDRESS =
   "Av. Alvear 1661, Recoleta, Buenos Aires";
 export const RECEPTION_MAPS_LINK =
