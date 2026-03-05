@@ -2,6 +2,10 @@
   position: relative;
   min-height: 100svh;
   display: flex;
+
+  @media (min-width: 901px) {
+    min-height: max(100svh, 850px);
+  }
   align-items: center;
   justify-content: center;
   overflow: hidden;

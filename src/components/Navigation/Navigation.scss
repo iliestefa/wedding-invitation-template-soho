@@ -57,7 +57,7 @@
   }
 
   &__desktop {
-    @include tablet {
+    @media (max-width: 900px) {
       display: none;
     }
   }
@@ -117,7 +117,7 @@
     cursor: pointer;
     padding: 4px;
 
-    @include tablet {
+    @media (max-width: 900px) {
       display: flex;
     }
 
@@ -143,7 +143,7 @@
     backdrop-filter: blur(12px);
     border-top: $border-thin;
 
-    @include tablet {
+    @media (max-width: 900px) {
       display: block;
       max-height: 0;
       overflow: hidden;
