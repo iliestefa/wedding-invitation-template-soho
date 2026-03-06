@@ -15,8 +15,8 @@ const COUNTDOWN_UNITS = [
 ];
 
 const Countdown = () => {
-  const { weddingDateIso } = useTemplateData();
-  const timeLeft  = useCountdown(weddingDateIso);
+  const { weddingDateIso, weddingTime } = useTemplateData();
+  const timeLeft  = useCountdown(weddingDateIso, weddingTime);
   const revealRef = useIntersectionObserver();
 
   const countdownItems = COUNTDOWN_UNITS.map(({ key, label }) => ({

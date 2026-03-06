@@ -21,11 +21,12 @@
 
   &__label {
     font-family: $font-body;
-    font-size: 0.55rem;
+    font-size: 0.5rem;
     font-weight: 700;
-    letter-spacing: 0.4em;
+    letter-spacing: 0.15em;
     text-transform: uppercase;
     color: rgba(240, 224, 196, 0.6);
+    white-space: nowrap;
   }
 
   @include tablet {
@@ -38,5 +39,10 @@
     width: 78px;
     height: 78px;
     padding: 0.75rem;
+
+    .countdown-unit__label {
+      font-size: 0.42rem;
+      letter-spacing: 0.08em;
+    }
   }
 }
