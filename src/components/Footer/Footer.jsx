@@ -3,14 +3,17 @@ import { useTemplateData } from '../../context/TemplateContext';
 import './Footer.scss';
 
 const Footer = () => {
-  const { coupleNames, weddingDateDisplay, footerMessage } = useTemplateData();
+  const { brideName, groomName, weddingDateDisplay, footerMessage } = useTemplateData();
+
+  const brideInitial = brideName ? brideName.charAt(0).toUpperCase() : 'S';
+  const groomInitial = groomName ? groomName.charAt(0).toUpperCase() : 'A';
 
   return (
     <footer className="footer">
       <div className="footer__inner">
-        <div className="footer__monogram" aria-hidden="true">S &amp; A</div>
-
-        <p className="footer__names">{coupleNames}</p>
+        <div className="footer__monogram" aria-hidden="true">
+          {brideInitial} &amp; {groomInitial}
+        </div>
 
         <span className="footer__rule" aria-hidden="true" />
 

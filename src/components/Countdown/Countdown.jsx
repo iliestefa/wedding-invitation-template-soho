@@ -1,3 +1,4 @@
+import { useTemplateData } from '../../context/TemplateContext';
 import useCountdown from '../../hooks/useCountdown';
 import useIntersectionObserver from '../../hooks/useIntersectionObserver';
 
@@ -14,7 +15,8 @@ const COUNTDOWN_UNITS = [
 ];
 
 const Countdown = () => {
-  const timeLeft  = useCountdown();
+  const { weddingDateIso } = useTemplateData();
+  const timeLeft  = useCountdown(weddingDateIso);
   const revealRef = useIntersectionObserver();
 
   const countdownItems = COUNTDOWN_UNITS.map(({ key, label }) => ({
