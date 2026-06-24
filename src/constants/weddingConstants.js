@@ -1,88 +1,76 @@
 // ─── Pareja ───────────────────────────────────────────────────────────────────
-export const BRIDE_NAME = "Sofia";
-export const GROOM_NAME = "Alejandro";
+export const BRIDE_NAME = "Elena";
+export const GROOM_NAME = "Luis";
 export const COUPLE_NAMES = `${BRIDE_NAME} & ${GROOM_NAME}`;
 
 // ─── Fecha ────────────────────────────────────────────────────────────────────
-export const WEDDING_DATE_ISO = "2026-09-05";
-export const WEDDING_DATE_DISPLAY = "05 · 09 · 2026";
+export const WEDDING_DATE_ISO = "2026-11-21";
+export const WEDDING_DATE_DISPLAY = "21 · 11 · 2026";
 export const WEDDING_YEAR = "2026";
 
 // ─── Ceremonia ────────────────────────────────────────────────────────────────
-export const CEREMONY_TIME = "17:00 hrs";
-export const CEREMONY_VENUE_NAME = "Iglesia del Pilar";
-export const CEREMONY_VENUE_ADDRESS = "Junín 1904, Recoleta, Buenos Aires";
+export const CEREMONY_TIME = "14:30 PM";
+export const CEREMONY_VENUE_NAME = "Basílica de Nuestra Señora de la Merced";
+export const CEREMONY_VENUE_ADDRESS =
+  "Víctor Manuel Rendón y Pedro Carbo, Guayaquil, Ecuador";
 export const CEREMONY_MAPS_LINK =
-  "https://maps.google.com/?q=Iglesia+Nuestra+Señora+del+Pilar+Buenos+Aires";
+  "https://www.google.com/maps?vet=10CAAQoqAOahcKEwjAj8Hcle6UAxUAAAAAHQAAAAAQBg..i&rlz=1C1GCEU_esEC1200EC1200&sca_esv=6253cd38f2fad33d&pvq=Cg0vZy8xMWJ3ZDJyXzhiIiIKHG51ZXN0cmEgc2XDsW9yYSBkZSBsYSBtZXJjZWQQAhgD&lqi=CiZudWVzdHJhIHNlw7FvcmEgZGUgbGEgbWVyY2VkIGd1YXlhcXVpbEiK-q_B7aqAgAhaPhAAEAEQAhADEAQYABgBGAIYAxgEGAUiJm51ZXN0cmEgc2XDsW9yYSBkZSBsYSBtZXJjZWQgZ3VheWFxdWlskgEPY2F0aG9saWNfY2h1cmNo&fvr=1&cs=0&um=1&ie=UTF-8&fb=1&gl=ec&sa=X&ftid=0x902d6e78c756928f:0x951660ff87c9b8c2";
 export const CEREMONY_MAPS_EMBED_SRC =
-  "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3284.168839143649!2d-58.39340898477058!3d-34.58760218046614!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcca7e9bc3c1a5%3A0x8b1c17b4f5c2c4a0!2sIglesia%20de%20Nuestra%20Se%C3%B1ora%20del%20Pilar!5e0!3m2!1ses!2sar!4v1700000000000";
+  "https://maps.google.com/maps?q=Bas%C3%ADlica+Nuestra+Se%C3%B1ora+de+la+Merced+Guayaquil&output=embed&hl=es";
 
-// ─── Recepcion ────────────────────────────────────────────────────────────────
-export const RECEPTION_TIME = "20:00 hrs";
-export const RECEPTION_VENUE_NAME = "Palacio Duhau";
+// ─── Recepción ────────────────────────────────────────────────────────────────
+export const RECEPTION_TIME = "17:00 PM";
+export const RECEPTION_VENUE_NAME = "Hotel Ibis Style\nTerraza";
 export const RECEPTION_VENUE_ADDRESS =
-  "Av. Alvear 1661, Recoleta, Buenos Aires";
+  "Av. Malecón Simón Bolívar S/N Calle Roca, Guayaquil, Ecuador";
 export const RECEPTION_MAPS_LINK =
-  "https://maps.google.com/?q=Park+Hyatt+Buenos+Aires+Palacio+Duhau";
+  "https://www.google.com/maps/place/Ibis+Styles+El+Malec%C3%B3n+Guayaquil/@-2.1898373,-79.8815675,17z/data=!4m20!1m10!3m9!1s0x902d6faab8a502e5:0xc59ee18fbf238dcb!2sIbis+Styles+El+Malec%C3%B3n+Guayaquil!5m2!4m1!1i2!8m2!3d-2.1898427!4d-79.8789926!16s%2Fg%2F11q3z0klp8!3m8!1s0x902d6faab8a502e5:0xc59ee18fbf238dcb!5m2!4m1!1i2!8m2!3d-2.1898427!4d-79.8789926!16s%2Fg%2F11q3z0klp8?entry=ttu&g_ep=EgoyMDI2MDYwMS4wIKXMDSoASAFQAw%3D%3D";
 export const RECEPTION_MAPS_EMBED_SRC =
-  "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3284.3290060978736!2d-58.38766678477066!3d-34.58393378046617!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcca7bb0fc14ab%3A0x49b9fbb3caaf99c2!2sPark%20Hyatt%20Buenos%20Aires!5e0!3m2!1ses!2sar!4v1700000000001";
+  "https://maps.google.com/maps?q=Ibis%20Styles%20El%20Malec%C3%B3n%20Guayaquil&output=embed&hl=es";
 
 // ─── Historia ─────────────────────────────────────────────────────────────────
 export const STORY_INTRO =
-  "Con el corazón lleno de gratitud y amor, los invitamos a ser parte del día más especial de nuestras vidas.";
+  '"La cuerda de tres hilos no se rompe fácilmente." — Eclesiastés 4:12\nDios escribió nuestra historia mucho antes de que nuestros caminos se cruzaran; hoy celebramos el propósito de caminar juntos para siempre, con Él como el tercer hilo que fortalece nuestra unión.';
 
 export const STORY_ITEMS = [
   {
-    id: "primer-encuentro",
-    year: "2019",
-    label: "Primer Encuentro",
-    text: "Una tarde de otoño en un café de Palermo. Una sonrisa cruzó el salón y cambió todo para siempre.",
-  },
-  {
-    id: "primer-viaje",
-    year: "2021",
-    label: "Nuestro Primer Viaje",
-    text: "Recorrimos la Patagonia de la mano. Entre montañas y lagos supimos que queríamos explorar el mundo juntos.",
-  },
-  {
-    id: "compromiso",
-    year: "2025",
-    label: "La Propuesta",
-    text: 'Frente al mar, al atardecer en Punta del Este, con un "sí" que resonó en todo el universo.',
-  },
-  {
     id: "boda",
+    year: "2019",
+    label: "¡Un Sí! Con el Mar de Testigo",
+    text: "Nuestra historia comenzó bajo el agua. Entre snorkel y el mar de Galápagos. La pregunta más bonita cambió nuestras vidas para siempre. ¡Ahí empezó todo!",
+  },
+  {
+    id: "momento-1782226599613",
+    year: "2021-2025",
+    label: "El Mundo a Nuestro Lado",
+    text: "Recorrimos kilómetros de amor viajando por el mundo. Compartimos risas, retos, nuevas culturas y sabores, demostrando que juntos lo podemos todo.",
+  },
+  {
+    id: "momento-1782227054138",
     year: "2026",
-    label: "El Gran Día",
-    text: "Rodeados de quienes más amamos, comenzamos el capítulo más hermoso de nuestra historia.",
+    label: 'Nuestro "Para Siempre"',
+    text: "Rodeados de las personas que más amamos, comenzamos el capítulo más hermoso de nuestra historia. ¡Bienvenidos a nuestra boda!",
   },
 ];
 
 // ─── Cronograma ───────────────────────────────────────────────────────────────
 export const SCHEDULE_ITEMS = [
-  { id: "llegada", time: "16:30", label: "Llegada a la Iglesia", icon: "🕌" },
-  { id: "ceremonia", time: "17:00", label: "Ceremonia Religiosa", icon: "💍" },
-  { id: "fotos", time: "18:30", label: "Sesión de Fotos", icon: "📷" },
-  {
-    id: "recepcion",
-    time: "20:00",
-    label: "Apertura de Recepción",
-    icon: "🥂",
-  },
-  { id: "cena", time: "21:00", label: "Cena de Gala", icon: "🍽️" },
-  { id: "brindis", time: "22:00", label: "Brindis de los Novios", icon: "✨" },
-  { id: "pastel", time: "23:00", label: "Corte del Pastel", icon: "🎂" },
+  { id: "llegada", time: "14:00", label: "Llegada a la Iglesia", icon: "⛪" },
+  { id: "ceremonia", time: "14:30", label: "Ceremonia Religiosa", icon: "💍" },
+  { id: "fotos", time: "15:30", label: "Sesión de Fotos", icon: "📷" },
+  { id: "recepcion", time: "17:00", label: "Recepción", icon: "🥂" },
+  { id: "cena", time: "19:00", label: "Cena", icon: "🍽️" },
   { id: "baile", time: "23:30", label: "Pista de Baile", icon: "🎶" },
 ];
 
 // ─── Dress Code ───────────────────────────────────────────────────────────────
-export const DRESS_CODE_STYLE = "Cocktail Elegante";
+export const DRESS_CODE_STYLE = "Cóctel Elegante";
 export const DRESS_CODE_DESCRIPTION =
-  "Les pedimos que acompañen el estilo de nuestra celebración con tonos cálidos y neutros. Evitar el blanco, negro puro y estampados muy llamativos.";
+  "Les pedimos que acompañen el estilo de nuestra celebración con tonos cálidos y neutros. Evitar el blanco, negro.";
 export const DRESS_CODE_WOMEN =
-  "Vestido de cóctel o largo en tonos tierra, champagne, rosa pálido o nude.";
+  "Vestido midi o largo fluido. Te recomendamos zapatos cómodos para la terraza y un abrigo ligero para la brisa de la noche.";
 export const DRESS_CODE_MEN =
-  "Traje con corbata o moñito. Tonos crema, camel, gris claro o azul marino.";
+  "Traje con corbata o moñito. Tonos camel, gris claro o azul marino.";
 
 export const DRESS_CODE_PALETTE = [
   { id: "champagne", label: "Champagne", hex: "#f5e6c8" },
@@ -101,31 +89,48 @@ export const GIFT_REGISTRY_INTRO =
 
 export const BANK_ACCOUNTS = [
   {
-    id: "sofia-pichincha",
-    ownerName: "Sofia Morales",
+    id: "cuenta-pichincha",
+    ownerName: "Elena Toaza",
     bankName: "Banco Pichincha",
     accountType: "Cuenta de Ahorros",
-    accountAlias: "sofia.morales",
-    cbu: "2200123456789012",
+    accountAlias: "Elena Toaza",
+    cbu: "2206833330",
     accountNumberLabel: "N° de Cuenta",
   },
   {
-    id: "alejandro-guayaquil",
-    ownerName: "Alejandro Gómez",
+    id: "cuenta-guayaquil",
+    ownerName: "Elena Toaza",
     bankName: "Banco Guayaquil",
-    accountType: "Cuenta Corriente",
-    accountAlias: "alejandro.gomez",
-    cbu: "0200987654321098",
+    accountType: "Cuenta Ahorros",
+    accountAlias: "Elena Toaza",
+    cbu: "25047473",
+    accountNumberLabel: "N° de Cuenta",
+  },
+  {
+    id: "cuenta-bolivariano",
+    ownerName: "Elena Toaza",
+    bankName: "Banco Bolivariano",
+    accountType: "Cuenta de Ahorros",
+    accountAlias: "Elena Toaza",
+    cbu: "0951126296",
+    accountNumberLabel: "N° de Cuenta",
+  },
+  {
+    id: "cuenta-produbanco",
+    ownerName: "Elena Toaza",
+    bankName: "Produbanco",
+    accountType: "Cuenta de Ahorros",
+    accountAlias: "Elena Toaza",
+    cbu: "12042106538",
     accountNumberLabel: "N° de Cuenta",
   },
 ];
 
 // ─── RSVP ─────────────────────────────────────────────────────────────────────
-export const RSVP_DEADLINE = "01 de Julio 2026";
+export const RSVP_DEADLINE = "18 noviembre 2026";
 
 // ─── Footer ───────────────────────────────────────────────────────────────────
-export const FOOTER_MESSAGE = "Nos mueve el amor, nos une la familia.";
-export const FOOTER_CONTACT_EMAIL = "boda@sofiayalejandro2026.com";
+export const FOOTER_MESSAGE = "¡Gracias por ser parte de nuestra historia!";
 
 // ─── Imágenes (Unsplash, sin API key) ─────────────────────────────────────────
 export const IMAGE_HERO =
