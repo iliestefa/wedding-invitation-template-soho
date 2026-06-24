@@ -7,7 +7,6 @@ import { submitRsvp } from '../services/rsvpService';
 const initialFormState = {
   [FORM_FIELD_NAMES.GUEST_NAME]:   '',
   [FORM_FIELD_NAMES.ATTENDANCE]:   '',
-  [FORM_FIELD_NAMES.GUEST_COUNT]:  '1',
   [FORM_FIELD_NAMES.DIETARY]:      '',
   [FORM_FIELD_NAMES.SONG_REQUEST]: '',
   [FORM_FIELD_NAMES.MESSAGE]:      '',

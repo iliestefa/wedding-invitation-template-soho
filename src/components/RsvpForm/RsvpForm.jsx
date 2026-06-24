@@ -1,5 +1,5 @@
 import {
-  ATTENDANCE_OPTIONS,
+  ATTENDANCE_BY_COUNT,
   FORM_FIELD_NAMES,
   FORM_LABELS,
   FORM_PLACEHOLDERS,
@@ -16,14 +16,16 @@ import FormStatus from './FormStatus/FormStatus';
 
 import './RsvpForm.scss';
 
-const attendanceOptions = ATTENDANCE_OPTIONS.map(({ id, value, label }) => (
-  <option key={id} value={value}>{label}</option>
-));
-
 const RsvpForm = () => {
   const { rsvpDeadline } = useTemplateData();
   const { formState, errors, status, handleFieldChange, handleSubmit } = useRsvpForm();
   const revealRef = useIntersectionObserver();
+
+  const maxCupos = Math.min(
+    parseInt(new URLSearchParams(window.location.search).get('cupos') || '1', 10),
+    4
+  );
+  const attendanceOptions = ATTENDANCE_BY_COUNT[maxCupos] || ATTENDANCE_BY_COUNT[4];
 
   const isSubmitting = status === FORM_STATUS.LOADING;
   const isSuccess    = status === FORM_STATUS.SUCCESS;
@@ -67,24 +69,10 @@ const RsvpForm = () => {
               disabled={isSubmitting}
             >
               <option value="">Selecciona una opción</option>
-              {attendanceOptions}
+              {attendanceOptions.map(({ id, value, label }) => (
+                <option key={id} value={value}>{label}</option>
+              ))}
             </select>
-          </FormField>
-
-          <FormField
-            label={FORM_LABELS.GUEST_COUNT}
-            htmlFor={FORM_FIELD_NAMES.GUEST_COUNT}
-          >
-            <input
-              id={FORM_FIELD_NAMES.GUEST_COUNT}
-              type="number"
-              min="1"
-              max="10"
-              placeholder={FORM_PLACEHOLDERS.GUEST_COUNT}
-              value={formState[FORM_FIELD_NAMES.GUEST_COUNT]}
-              onChange={(e) => handleFieldChange(FORM_FIELD_NAMES.GUEST_COUNT, e.target.value)}
-              disabled={isSubmitting}
-            />
           </FormField>
 
           <FormField

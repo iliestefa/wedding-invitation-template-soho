@@ -1,8 +1,35 @@
-export const ATTENDANCE_OPTIONS = [
-  { id: 'yes-solo',     value: 'yes_solo',     label: 'Sí, asistiré solo/a' },
-  { id: 'yes-plus-one', value: 'yes_plus_one', label: 'Sí, asistiré con acompañante' },
-  { id: 'yes-family',   value: 'yes_family',   label: 'Sí, vamos en familia' },
-  { id: 'no',           value: 'no',           label: 'No podré asistir' },
+export const ATTENDANCE_BY_COUNT = {
+  1: [
+    { id: 'yes-1', value: 'yes_1', label: 'Sí, asistiré solo/a', count: 1 },
+    { id: 'no',    value: 'no',    label: 'No podré asistir',     count: 0 },
+  ],
+  2: [
+    { id: 'yes-1', value: 'yes_1', label: 'Sí, asistiré solo/a',              count: 1 },
+    { id: 'yes-2', value: 'yes_2', label: 'Sí, asistiré con 1 acompañante',   count: 2 },
+    { id: 'no',    value: 'no',    label: 'No podré asistir',                  count: 0 },
+  ],
+  3: [
+    { id: 'yes-1', value: 'yes_1', label: 'Sí, asistiré solo/a',              count: 1 },
+    { id: 'yes-2', value: 'yes_2', label: 'Sí, asistiré con 1 acompañante',   count: 2 },
+    { id: 'yes-3', value: 'yes_3', label: 'Sí, asistiré con 2 acompañantes',  count: 3 },
+    { id: 'no',    value: 'no',    label: 'No podré asistir',                  count: 0 },
+  ],
+  4: [
+    { id: 'yes-1', value: 'yes_1', label: 'Sí, asistiré solo/a',              count: 1 },
+    { id: 'yes-2', value: 'yes_2', label: 'Sí, asistiré con 1 acompañante',   count: 2 },
+    { id: 'yes-3', value: 'yes_3', label: 'Sí, asistiré con 2 acompañantes',  count: 3 },
+    { id: 'yes-4', value: 'yes_4', label: 'Sí, asistiré con 3 acompañantes',  count: 4 },
+    { id: 'no',    value: 'no',    label: 'No podré asistir',                  count: 0 },
+  ],
+};
+
+export const ATTENDANCE_OPTIONS = ATTENDANCE_BY_COUNT[4];
+
+export const GUEST_COUNT_OPTIONS = [
+  { id: 'simple',    value: '1', label: 'Individual (1 persona)' },
+  { id: 'doble',     value: '2', label: 'Doble (2 personas)' },
+  { id: 'triple',    value: '3', label: 'Triple (3 personas)' },
+  { id: 'cuadruple', value: '4', label: 'Cuádruple (4 personas)' },
 ];
 
 export const FORM_FIELD_NAMES = {
@@ -17,7 +44,7 @@ export const FORM_FIELD_NAMES = {
 export const FORM_LABELS = {
   GUEST_NAME:   'Nombre completo *',
   ATTENDANCE:   '¿Asistirás a la boda? *',
-  GUEST_COUNT:  'Número de personas (incluido tú)',
+  GUEST_COUNT:  'Tipo de invitación',
   DIETARY:      'Restricciones alimentarias o alergias',
   SONG_REQUEST: 'Una canción que no puede faltar en la pista',
   MESSAGE:      'Un mensaje para los novios',
