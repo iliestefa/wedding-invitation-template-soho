@@ -9,6 +9,7 @@
     @include eyebrow;
     display: block;
     margin-bottom: 0.75rem;
+    color: #1e3a6e;
   }
 
   &__venue {
@@ -25,6 +26,7 @@
     @include gold-rule(40px);
     display: block;
     margin: 0;
+    background: #1e3a6e;
   }
 
   &__details {
@@ -45,15 +47,15 @@
     font-weight: 700;
     letter-spacing: 0.35em;
     text-transform: uppercase;
-    color: $color-gold;
-    padding-top: 0.2rem; // visual alignment with value text
+    color: #1e3a6e;
+    padding-top: 0.2rem;
   }
 
   &__detail-value {
     font-family: $font-body;
     font-size: 0.95rem;
     font-weight: 300;
-    color: $color-text;
+    color: #1e3a6e;
     margin: 0;
     line-height: 1.5;
   }

@@ -73,9 +73,9 @@
     animation: heroFadeIn 1s $ease-out 1.5s both;
 
     &:hover {
-      background-color: $color-gold;
-      border-color: $color-gold;
-      color: $color-bg-dark;
+      background-color: $color-bg-dark;
+      border-color: $color-bg-dark;
+      color: $color-white;
     }
   }
 }

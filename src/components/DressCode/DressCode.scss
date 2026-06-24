@@ -1,5 +1,5 @@
 .dress-code {
-  background-color: $color-bg;
+  background-color: #f4f6f0;
   display: grid;
   grid-template-columns: 1fr 1fr;
   min-height: 600px;
@@ -32,6 +32,9 @@
   &__content {
     @include reveal-ready;
     @include section-padding;
+
+    .section-header__eyebrow { color: #1e3a6e; }
+    .section-header__rule    { background: #1e3a6e; }
     padding-top: 3rem;
     padding-left: 5rem;
     padding-right: $gutter;
@@ -59,20 +62,21 @@
 
   &__category {
     padding-left: 1.25rem;
-    border-left: 2px solid $color-gold-pale;
+    border-left: 2px solid #1e3a6e;
   }
 
   &__category-label {
     @include eyebrow;
     display: block;
     margin-bottom: 0.4rem;
+    color: #1e3a6e;
   }
 
   &__category-text {
     font-family: $font-body;
     font-size: 0.9rem;
     font-weight: 300;
-    color: $color-text;
+    color: #1e3a6e;
     line-height: 1.6;
     margin: 0;
   }

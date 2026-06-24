@@ -22,11 +22,11 @@
     letter-spacing: 0.25em;
     text-transform: uppercase;
     text-decoration: none;
-    color: $color-gold;
+    color: $color-primary;
     transition: color $dur-base $ease-out;
 
     &:hover {
-      color: $color-terracotta;
+      color: $color-primary-dark;
     }
 
     @include focus-ring;

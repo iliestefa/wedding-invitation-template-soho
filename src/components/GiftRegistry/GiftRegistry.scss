@@ -1,5 +1,5 @@
 .gift-registry {
-  background-color: $color-bg-alt;
+  background-color: #ffffff;
   @include section-padding;
 
   &__inner {
@@ -9,6 +9,10 @@
 
   .section-header {
     margin-bottom: 1.5rem;
+
+    .section-header__eyebrow { color: #1e3a6e; }
+    .section-header__title   { color: #1e3a6e; }
+    .section-header__rule    { background: #1e3a6e; }
   }
 
   &__intro {
@@ -17,7 +21,7 @@
     font-style: italic;
     font-size: 1.15rem;
     font-weight: 300;
-    color: $color-text-muted;
+    color: #1e3a6e;
     line-height: 1.8;
     text-align: center;
     margin: 0 0 2rem;

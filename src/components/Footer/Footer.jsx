@@ -22,7 +22,15 @@ const Footer = () => {
         <p className="footer__message">{footerMessage}</p>
 
         <p className="footer__credit">
-          Hecho con amor · {new Date().getFullYear()}
+          Hecho con 🤍 · por{' '}
+          <a
+            href="https://www.instagram.com/wedya.digital"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="footer__credit-link"
+          >
+            Wedya
+          </a>
         </p>
       </div>
     </footer>

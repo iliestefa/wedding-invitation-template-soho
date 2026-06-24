@@ -100,23 +100,26 @@
 @mixin btn-gold {
   @include btn-base;
   background-color: transparent;
-  color: $color-gold;
+  color: $color-white;
+  border-color: rgba(255, 255, 255, 0.5);
 
   &:hover {
-    background-color: $color-gold;
-    color: $color-bg;
+    background-color: $color-bg-dark;
+    border-color: $color-bg-dark;
+    color: $color-white;
   }
 }
 
 @mixin btn-gold-solid {
   @include btn-base;
-  background-color: $color-gold;
-  color: $color-bg;
-  border-color: $color-gold;
+  background-color: transparent;
+  color: #1e3a6e;
+  border-color: #1e3a6e;
 
   &:hover {
-    background-color: $color-gold-light;
-    border-color: $color-gold-light;
+    background-color: #1e3a6e;
+    border-color: #1e3a6e;
+    color: $color-white;
   }
 }
 

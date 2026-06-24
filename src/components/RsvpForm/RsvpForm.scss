@@ -1,10 +1,13 @@
 .rsvp {
-  background-color: $color-bg;
+  background-color: #f0f3ec;
   @include section-padding;
 
   &__inner {
     @include section-inner;
     max-width: 600px;
+
+    .section-header__eyebrow { color: #1e3a6e; }
+    .section-header__rule    { background: #1e3a6e; }
   }
 
   &__form {
@@ -29,8 +32,8 @@
       cursor: not-allowed;
 
       &:hover {
-        background-color: $color-gold;
-        border-color: $color-gold;
+        background-color: $color-bg-dark;
+        border-color: $color-bg-dark;
       }
     }
 

@@ -1,16 +1,16 @@
 // ─── CSS Custom Properties (runtime) ────────────────────────────────────────
 :root {
-  --color-bg:          #faf5ef;
-  --color-bg-alt:      #f3ede4;
-  --color-bg-dark:     #2a221a;
-  --color-text:        #1e1610;
-  --color-text-muted:  #7a6f64;
-  --color-gold:        #c4985a;
-  --color-gold-light:  #ddb87a;
-  --color-gold-pale:   #f0e0c4;
-  --color-terracotta:  #c17047;
-  --color-border:      #e0d8cc;
-  --color-border-gold: #c4985a;
+  --color-bg:          #ffffff;
+  --color-bg-alt:      #ffffff;
+  --color-bg-dark:     #7a8a68;   /* olive grisáceo — footer, countdown */
+  --color-text:        #1e3a6e;   /* navy — títulos */
+  --color-text-muted:  #1e3a6e;   /* navy — textos secundarios */
+  --color-gold:        #f0e8d0;   /* champagne — acentos sobre olive */
+  --color-gold-light:  #f7f0e0;   /* champagne claro — hover */
+  --color-gold-pale:   #faf6ee;   /* champagne pálido — fondos suaves */
+  --color-terracotta:  #1e3a6e;   /* navy — acentos */
+  --color-border:      #c8d0e0;   /* borde navy suave */
+  --color-border-gold: #f0e8d0;   /* borde champagne */
 
   --font-display: 'Playfair Display', 'Georgia', serif;
   --font-script:  'Cormorant Garamond', 'Palatino', serif;
@@ -29,17 +29,20 @@
 }
 
 // ─── SCSS Variables (compile-time) ──────────────────────────────────────────
-$color-bg:          #faf5ef;
-$color-bg-alt:      #f3ede4;
-$color-bg-dark:     #2a221a;
-$color-text:        #1e1610;
-$color-text-muted:  #7a6f64;
-$color-gold:        #c4985a;
-$color-gold-light:  #ddb87a;
-$color-gold-pale:   #f0e0c4;
-$color-terracotta:  #c17047;
-$color-border:      #e0d8cc;
-$color-border-gold: #c4985a;
+$color-bg:          #ffffff;
+$color-bg-alt:      #ffffff;
+$color-bg-dark:     #7a8a68;   /* olive grisáceo */
+$color-text:        #1e3a6e;   /* navy — títulos */
+$color-text-muted:  #1e3a6e;   /* navy — textos secundarios */
+$color-gold:        #f0e8d0;   /* champagne — acentos sobre olive */
+$color-gold-light:  #f7f0e0;   /* champagne claro — hover */
+$color-gold-pale:   #faf6ee;   /* champagne pálido — fondos suaves */
+$color-terracotta:  #1e3a6e;   /* navy — acentos */
+$color-primary:     #1e3a6e;   /* navy — botón primario */
+$color-primary-dark:#111e38;   /* navy oscuro — hover */
+$color-secondary:   #4a5530;   /* olive oscuro — botón secundario */
+$color-border:      #c8d0e0;
+$color-border-gold: #f0e8d0;   /* borde champagne */
 $color-white:       #ffffff;
 
 $font-display: 'Playfair Display', 'Georgia', serif;

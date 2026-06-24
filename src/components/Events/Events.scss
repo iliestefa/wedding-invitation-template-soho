@@ -1,9 +1,17 @@
 .events {
-  background-color: $color-bg-alt;
+  background-color: #ffffff;
   @include section-padding;
 
   &__inner {
     @include section-inner;
+
+    .section-header__eyebrow {
+      color: #1e3a6e;
+    }
+
+    .section-header__rule {
+      background: #1e3a6e;
+    }
   }
 
   &__grid {

@@ -4,19 +4,31 @@
   left: 0;
   right: 0;
   z-index: 100;
-  transition: background-color $dur-base $ease-out, backdrop-filter $dur-base $ease-out;
+  background-color: transparent;
+  border-bottom: none;
+  transition: background-color $dur-base $ease-out, backdrop-filter $dur-base $ease-out, border-color $dur-base $ease-out, box-shadow $dur-base $ease-out;
 
   &--scrolled {
-    background-color: rgba(250, 245, 239, 0.92);
+    background-color: rgba(255, 255, 255, 0.97);
     backdrop-filter: blur(12px);
-    box-shadow: 0 1px 0 $color-border;
+    border-bottom: 1px solid rgba(107, 122, 74, 0.25);
+    box-shadow: 0 2px 16px rgba(74, 85, 48, 0.08);
 
     .nav__link {
-      color: $color-text;
+      color: #4a5530;
+
+      &::after {
+        background: #4a5530;
+      }
+    }
+
+    .nav__monogram-text,
+    .nav__monogram-amp {
+      color: #4a5530;
     }
 
     .nav__burger span {
-      background: $color-text;
+      background: #4a5530;
     }
   }
 
@@ -44,7 +56,7 @@
     font-family: $font-display;
     font-size: 1.4rem;
     font-weight: 400;
-    color: $color-gold;
+    color: #ffffff;
     line-height: 1;
   }
 
@@ -52,7 +64,7 @@
     font-family: $font-script;
     font-style: italic;
     font-size: 1rem;
-    color: $color-text-muted;
+    color: #ffffff;
     line-height: 1;
   }
 
@@ -81,7 +93,7 @@
     letter-spacing: 0.35em;
     text-transform: uppercase;
     text-decoration: none;
-    color: $color-white;
+    color: #ffffff;
     transition: color $dur-fast $ease-out;
     position: relative;
 
@@ -92,12 +104,12 @@
       left: 0;
       width: 0;
       height: 1px;
-      background: $color-gold;
+      background: #ffffff;
       transition: width $dur-base $ease-out;
     }
 
     &:hover {
-      color: $color-gold;
+      color: #1e3a6e;
 
       &::after {
         width: 100%;
@@ -125,7 +137,7 @@
       display: block;
       width: 24px;
       height: 1px;
-      background: $color-white;
+      background: #ffffff;
       transition: transform $dur-base $ease-out, opacity $dur-fast;
     }
 
@@ -139,9 +151,9 @@
   // ─── Mobile menu ──────────────────────────────────────────────────────────
   &__mobile {
     display: none;
-    background-color: rgba(250, 245, 239, 0.97);
+    background-color: rgba(255, 255, 255, 0.97);
     backdrop-filter: blur(12px);
-    border-top: $border-thin;
+    border-top: 1px solid rgba(74, 85, 48, 0.2);
 
     @media (max-width: 900px) {
       display: block;
@@ -155,13 +167,12 @@
     }
   }
 
-  // Cuando el menú móvil está abierto: forzar fondo y colores oscuros en el header
   &:has(.nav__mobile--open) {
-    background-color: rgba(250, 245, 239, 0.97) !important;
+    background-color: rgba(255, 255, 255, 0.97) !important;
     backdrop-filter: blur(12px) !important;
 
-    .nav__link { color: $color-text !important; }
-    .nav__burger span { background: $color-text !important; }
+    .nav__link { color: #4a5530 !important; }
+    .nav__burger span { background: #4a5530 !important; }
   }
 
   &__mobile-list {

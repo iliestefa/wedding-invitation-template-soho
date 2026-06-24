@@ -29,11 +29,11 @@
   }
 
   &--success {
-    background-color: rgba(196, 152, 90, 0.08);
-    border-left: 2px solid $color-gold;
+    background-color: rgba(27, 45, 79, 0.06);
+    border-left: 2px solid #1e3a6e;
 
     .form-status__icon {
-      background: $color-gold;
+      background: #1e3a6e;
       color: $color-white;
     }
 

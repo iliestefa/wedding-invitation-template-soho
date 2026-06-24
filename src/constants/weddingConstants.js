@@ -73,14 +73,12 @@ export const DRESS_CODE_MEN =
   "Traje con corbata o moñito. Tonos camel, gris claro o azul marino.";
 
 export const DRESS_CODE_PALETTE = [
-  { id: "champagne", label: "Champagne", hex: "#f5e6c8" },
-  { id: "sand", label: "Arena", hex: "#d4b896" },
-  { id: "terracotta", label: "Terracota", hex: "#c17047" },
-  { id: "sage", label: "Sage", hex: "#a8b5a0" },
-  { id: "dusty-rose", label: "Rosa Pálido", hex: "#d4a0a0" },
-  { id: "camel", label: "Camel", hex: "#c19a6b" },
-  { id: "navy", label: "Azul Marino", hex: "#2c3e6b" },
-  { id: "ivory", label: "Marfil", hex: "#f8f4ec" },
+  { id: "navy",       label: "Azul Marino",  hex: "#2c3e6b" },
+  { id: "navy-light", label: "Azul Acero",   hex: "#4a6fa5" },
+  { id: "olive",      label: "Verde Oliva",  hex: "#6b7c3a" },
+  { id: "sage",       label: "Sage",         hex: "#a8b5a0" },
+  { id: "gold",       label: "Dorado",       hex: "#b59a4a" },
+  { id: "champagne",  label: "Champagne",    hex: "#ede8d0" },
 ];
 
 // ─── Cuentas para Regalo ──────────────────────────────────────────────────────

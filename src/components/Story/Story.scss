@@ -1,5 +1,5 @@
 .story {
-  background-color: $color-bg;
+  background-color: #ffffff;
   @include section-padding;
 
   &__inner {
@@ -8,6 +8,14 @@
 
     .section-header {
       margin-bottom: 1.5rem;
+
+      .section-header__eyebrow {
+        color: #1e3a6e;
+      }
+
+      .section-header__rule {
+        background: #1e3a6e;
+      }
     }
   }
 
@@ -19,11 +27,10 @@
     font-size: clamp(1.1rem, 2vw, 1.35rem);
     font-weight: 300;
     color: $color-text-muted;
-    line-height: 1.8;
+    line-height: 1.6;
     text-align: center;
     margin-bottom: 4rem;
     white-space: pre-line;
-    line-height: 1.6;
   }
 
   &__timeline {
@@ -41,9 +48,9 @@
       width: 1px;
       background: linear-gradient(
         to bottom,
-        $color-gold 0%,
-        $color-border 50%,
-        rgba(224, 216, 204, 0) 100%
+        #1e3a6e 0%,
+        rgba(27, 45, 79, 0.3) 50%,
+        rgba(27, 45, 79, 0) 100%
       );
 
       @include tablet {
