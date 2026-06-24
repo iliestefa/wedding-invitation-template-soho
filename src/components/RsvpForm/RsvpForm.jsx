@@ -1,3 +1,5 @@
+import { useState, useEffect } from 'react';
+
 import {
   ATTENDANCE_BY_COUNT,
   FORM_FIELD_NAMES,
@@ -13,6 +15,7 @@ import { useTemplateData } from '../../context/TemplateContext';
 import SectionHeader from '../shared/SectionHeader/SectionHeader';
 import FormField from './FormField/FormField';
 import FormStatus from './FormStatus/FormStatus';
+import ConfirmationModal from './ConfirmationModal/ConfirmationModal';
 
 import './RsvpForm.scss';
 
@@ -20,12 +23,17 @@ const RsvpForm = () => {
   const { rsvpDeadline } = useTemplateData();
   const { formState, errors, status, handleFieldChange, handleSubmit } = useRsvpForm();
   const revealRef = useIntersectionObserver();
+  const [showModal, setShowModal] = useState(false);
 
   const maxCupos = Math.min(
     parseInt(new URLSearchParams(window.location.search).get('cupos') || '1', 10),
     4
   );
   const attendanceOptions = ATTENDANCE_BY_COUNT[maxCupos] || ATTENDANCE_BY_COUNT[4];
+
+  useEffect(() => {
+    if (status === FORM_STATUS.SUCCESS) setShowModal(true);
+  }, [status]);
 
   const isSubmitting = status === FORM_STATUS.LOADING;
   const isSuccess    = status === FORM_STATUS.SUCCESS;
@@ -127,9 +135,11 @@ const RsvpForm = () => {
             </button>
           </div>
 
-          <FormStatus status={status} />
+          {status === FORM_STATUS.ERROR && <FormStatus status={status} />}
         </form>
       </div>
+
+      {showModal && <ConfirmationModal onClose={() => setShowModal(false)} />}
     </section>
   );
 };

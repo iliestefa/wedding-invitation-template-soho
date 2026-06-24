@@ -30,10 +30,12 @@
     &:disabled {
       opacity: 0.5;
       cursor: not-allowed;
+      color: #1e3a6e;
 
       &:hover {
-        background-color: $color-bg-dark;
-        border-color: $color-bg-dark;
+        background-color: transparent;
+        border-color: #1e3a6e;
+        color: #1e3a6e;
       }
     }
 
