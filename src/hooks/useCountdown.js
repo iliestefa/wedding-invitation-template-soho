@@ -5,7 +5,7 @@ import { computeTimeRemaining } from '../utils/dateHelpers';
 
 const useCountdown = (dateIso, time) => {
   const iso = dateIso || WEDDING_DATE_ISO;
-  const t   = time || '17:00';
+  const t   = time || '14:00';
 
   const [timeLeft, setTimeLeft] = useState(() => computeTimeRemaining(new Date(`${iso}T${t}:00`)));
 

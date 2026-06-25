@@ -55,8 +55,8 @@ export const STORY_ITEMS = [
 
 // ─── Cronograma ───────────────────────────────────────────────────────────────
 export const SCHEDULE_ITEMS = [
-  { id: "llegada", time: "14:00", label: "Llegada a la Iglesia", icon: "⛪" },
-  { id: "ceremonia", time: "14:30", label: "Ceremonia Religiosa", icon: "💍" },
+  { id: "llegada", time: "13:30", label: "Llegada a la Iglesia", icon: "⛪" },
+  { id: "ceremonia", time: "14:00", label: "Ceremonia Religiosa", icon: "💍" },
   { id: "fotos", time: "15:30", label: "Sesión de Fotos", icon: "📷" },
   { id: "recepcion", time: "17:00", label: "Recepción", icon: "🥂" },
   { id: "cena", time: "19:00", label: "Cena", icon: "🍽️" },
@@ -65,8 +65,7 @@ export const SCHEDULE_ITEMS = [
 
 // ─── Dress Code ───────────────────────────────────────────────────────────────
 export const DRESS_CODE_STYLE = "Cóctel Elegante";
-export const DRESS_CODE_DESCRIPTION =
-  "Les pedimos que acompañen el estilo de nuestra celebración con tonos cálidos y neutros. Evitar el blanco, negro.";
+export const DRESS_CODE_DESCRIPTION = "";
 export const DRESS_CODE_WOMEN =
   "Vestido midi o largo fluido. Te recomendamos zapatos cómodos para la terraza y un abrigo ligero para la brisa de la noche.";
 export const DRESS_CODE_MEN =

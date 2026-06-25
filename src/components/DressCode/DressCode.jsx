@@ -25,7 +25,7 @@ const DressCode = () => {
       <div ref={revealRef} className="dress-code__content">
         <SectionHeader eyebrow="Código de Vestimenta" title={dressCodeStyle} centered={false} />
 
-        <p className="dress-code__description">{dressCodeDescription}</p>
+        {dressCodeDescription && <p className="dress-code__description">{dressCodeDescription}</p>}
 
         <div className="dress-code__categories">
           <div className="dress-code__category">
