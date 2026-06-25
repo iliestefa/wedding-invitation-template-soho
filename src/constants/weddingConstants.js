@@ -9,7 +9,7 @@ export const WEDDING_DATE_DISPLAY = "21 · 11 · 2026";
 export const WEDDING_YEAR = "2026";
 
 // ─── Ceremonia ────────────────────────────────────────────────────────────────
-export const CEREMONY_TIME = "14:30 PM";
+export const CEREMONY_TIME = "14:00 PM";
 export const CEREMONY_VENUE_NAME = "Basílica de Nuestra Señora de la Merced";
 export const CEREMONY_VENUE_ADDRESS =
   "Víctor Manuel Rendón y Pedro Carbo, Guayaquil, Ecuador";
@@ -65,7 +65,8 @@ export const SCHEDULE_ITEMS = [
 
 // ─── Dress Code ───────────────────────────────────────────────────────────────
 export const DRESS_CODE_STYLE = "Cóctel Elegante";
-export const DRESS_CODE_DESCRIPTION = "";
+export const DRESS_CODE_DESCRIPTION =
+  "Les pedimos que acompañen el estilo de nuestra celebración con tonos cálidos y neutros.";
 export const DRESS_CODE_WOMEN =
   "Vestido midi o largo fluido. Te recomendamos zapatos cómodos para la terraza y un abrigo ligero para la brisa de la noche.";
 export const DRESS_CODE_MEN =
