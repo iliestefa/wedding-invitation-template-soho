@@ -131,8 +131,8 @@ export const RSVP_DEADLINE = "18 noviembre 2026";
 export const FOOTER_MESSAGE = "¡Gracias por ser parte de nuestra historia!";
 
 // ─── Imágenes (Unsplash, sin API key) ─────────────────────────────────────────
-export const IMAGE_HERO =
-  "https://images.unsplash.com/photo-1519741497674-611481863552?w=1920&q=80&auto=format&fit=crop";
+export const IMAGE_HERO = "/compromiso.png";
+export const IMAGE_HERO_DESK = "/compromiso%20desk.png";
 export const IMAGE_STORY =
   "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=1200&q=80&auto=format&fit=crop";
 export const IMAGE_DRESS_CODE =

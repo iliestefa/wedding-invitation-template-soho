@@ -29,6 +29,7 @@ import {
   RSVP_DEADLINE,
   FOOTER_MESSAGE,
   IMAGE_HERO,
+  IMAGE_HERO_DESK,
   IMAGE_DRESS_CODE,
 } from '../constants';
 
@@ -61,6 +62,7 @@ const defaultData = {
   rsvpDeadline: RSVP_DEADLINE,
   footerMessage: FOOTER_MESSAGE,
   imageHero: IMAGE_HERO,
+  imageHeroDesk: IMAGE_HERO_DESK,
   imageDressCode: IMAGE_DRESS_CODE,
 };
 
