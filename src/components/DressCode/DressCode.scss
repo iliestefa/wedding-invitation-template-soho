@@ -34,7 +34,9 @@
     @include section-padding;
 
     .section-header__eyebrow { color: #1e3a6e; }
-    .section-header__rule    { background: #1e3a6e; }
+    .section-header__rule    { background: #1e3a6e; margin-left: 0; margin-right: auto; }
+    .section-header__title   { margin-bottom: 0; }
+    .section-header         { margin-bottom: 1.5rem; }
     padding-top: 3rem;
     padding-left: 5rem;
     padding-right: $gutter;
