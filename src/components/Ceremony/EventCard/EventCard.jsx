@@ -5,8 +5,9 @@ import MapEmbed from '../../shared/MapEmbed/MapEmbed';
 
 import './EventCard.scss';
 
-const EventCard = ({ eyebrow, venueName, time, address, mapsLink, mapsEmbedSrc }) => {
+const EventCard = ({ eyebrow, venueName, time, address, mapsLink, mapsEmbedSrc, timeRows }) => {
   const revealRef = useIntersectionObserver();
+  const rows = timeRows ?? [{ label: 'Hora', value: time }];
 
   return (
     <div ref={revealRef} className="event-card">
@@ -17,10 +18,12 @@ const EventCard = ({ eyebrow, venueName, time, address, mapsLink, mapsEmbedSrc }
       </div>
 
       <dl className="event-card__details">
-        <div className="event-card__detail">
-          <dt className="event-card__detail-label">Hora</dt>
-          <dd className="event-card__detail-value">{time}</dd>
-        </div>
+        {rows.map(({ label, value }) => (
+          <div key={label} className="event-card__detail">
+            <dt className="event-card__detail-label">{label}</dt>
+            <dd className="event-card__detail-value">{value}</dd>
+          </div>
+        ))}
         <div className="event-card__detail">
           <dt className="event-card__detail-label">Dirección</dt>
           <dd className="event-card__detail-value">{address}</dd>
@@ -35,10 +38,19 @@ const EventCard = ({ eyebrow, venueName, time, address, mapsLink, mapsEmbedSrc }
 EventCard.propTypes = {
   eyebrow:      PropTypes.string.isRequired,
   venueName:    PropTypes.string.isRequired,
-  time:         PropTypes.string.isRequired,
+  time:         PropTypes.string,
   address:      PropTypes.string.isRequired,
   mapsLink:     PropTypes.string.isRequired,
   mapsEmbedSrc: PropTypes.string.isRequired,
+  timeRows:     PropTypes.arrayOf(PropTypes.shape({
+    label: PropTypes.string.isRequired,
+    value: PropTypes.string,
+  })),
+};
+
+EventCard.defaultProps = {
+  time:     '',
+  timeRows: null,
 };
 
 export default EventCard;

@@ -1,11 +1,12 @@
+import { useMemo, useState } from 'react';
+
 import {
-  ATTENDANCE_OPTIONS,
-  FORM_FIELD_NAMES,
   FORM_LABELS,
+  FORM_MESSAGES,
   FORM_PLACEHOLDERS,
   FORM_STATUS,
 } from '../../constants';
-import useRsvpForm from '../../hooks/useRsvpForm';
+import { submitRsvp } from '../../services/rsvpService';
 import useIntersectionObserver from '../../hooks/useIntersectionObserver';
 
 import { useTemplateData } from '../../context/TemplateContext';
@@ -16,17 +17,130 @@ import FormStatus from './FormStatus/FormStatus';
 
 import './RsvpForm.scss';
 
-const attendanceOptions = ATTENDANCE_OPTIONS.map(({ id, value, label }) => (
-  <option key={id} value={value}>{label}</option>
-));
+// En modo 'limited' cada cupo tiene su propio link: ?cupos=N
+const getCupoParam = () => {
+  const raw = new URLSearchParams(window.location.search).get('cupos');
+  if (raw === null) return null;
+  const n = Number(raw);
+  return Number.isInteger(n) && n >= 0 ? n : null;
+};
+
+const buildWhatsappUrl = (number, message) => {
+  const digits = (number || '').replace(/\D/g, '');
+  if (!digits) return null;
+  return `https://wa.me/${digits}?text=${encodeURIComponent(message)}`;
+};
 
 const RsvpForm = () => {
-  const { rsvpDeadline } = useTemplateData();
-  const { formState, errors, status, handleFieldChange, handleSubmit } = useRsvpForm();
+  const {
+    coupleNames,
+    rsvpDeadline,
+    rsvpType,
+    rsvpWhatsapp,
+    rsvpCompanionsMode,
+    rsvpCupos,
+    rsvpQuestions,
+  } = useTemplateData();
+
   const revealRef = useIntersectionObserver();
+
+  const type = rsvpType ?? 'sheets';
+  const questions = rsvpQuestions ?? [];
+  const limited = type === 'sheets' && rsvpCompanionsMode === 'limited';
+
+  // Cupo del link actual; sin parámetro (o inválido) se usa el cupo más alto
+  const cupo = useMemo(() => {
+    if (!limited) return null;
+    const available = rsvpCupos?.length ? rsvpCupos : [0, 1, 2];
+    const param = getCupoParam();
+    return param !== null && available.includes(param) ? param : Math.max(...available);
+  }, [limited, rsvpCupos]);
+
+  // Con cupos, la respuesta de asistencia ya incluye los acompañantes
+  const attendanceChoices = useMemo(() => {
+    if (cupo === null) {
+      return [
+        { value: 'yes', label: 'Sí, asistiré' },
+        { value: 'no',  label: 'No podré asistir' },
+      ];
+    }
+    return [
+      { value: 'yes-0', label: 'Sí, asistiré solo/a' },
+      ...Array.from({ length: cupo }, (_, i) => {
+        const n = i + 1;
+        return {
+          value: `yes-${n}`,
+          label: n === 1 ? 'Sí, con 1 acompañante' : `Sí, con ${n} acompañantes`,
+        };
+      }),
+      { value: 'no', label: 'No podré asistir' },
+    ];
+  }, [cupo]);
+
+  const [guestName, setGuestName]   = useState('');
+  const [attendance, setAttendance] = useState('');
+  const [companions, setCompanions] = useState('1');
+  const [answers, setAnswers]       = useState({});
+  const [errors, setErrors]         = useState({});
+  const [status, setStatus]         = useState(FORM_STATUS.IDLE);
 
   const isSubmitting = status === FORM_STATUS.LOADING;
   const isSuccess    = status === FORM_STATUS.SUCCESS;
+  const isAttending  = attendance !== '' && attendance !== 'no';
+
+  const setAnswer = (id, value) => setAnswers((prev) => ({ ...prev, [id]: value }));
+
+  const validate = () => {
+    const nextErrors = {};
+    if (!guestName.trim()) nextErrors.guestName = FORM_MESSAGES.VALIDATION_NAME;
+    if (!attendance) nextErrors.attendance = FORM_MESSAGES.VALIDATION_ATTENDANCE;
+    setErrors(nextErrors);
+    return Object.keys(nextErrors).length === 0;
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    if (!validate()) return;
+
+    const attendanceLabel =
+      attendanceChoices.find((o) => o.value === attendance)?.label ?? attendance;
+    const companionsCount = cupo !== null
+      ? (attendance.startsWith('yes-') ? Number(attendance.slice(4)) : 0)
+      : companions;
+    const answeredQuestions = questions
+      .map((q) => ({ label: q.label, value: (answers[q.id] ?? '').trim() }))
+      .filter((q) => q.value);
+
+    if (type === 'whatsapp') {
+      const lines = [
+        `Confirmación de asistencia — ${coupleNames}`,
+        `Nombre: ${guestName}`,
+        `Asistencia: ${attendanceLabel}`,
+        ...(isAttending ? [`Personas (incluido yo): ${companions}`] : []),
+        ...answeredQuestions.map((q) => `${q.label}: ${q.value}`),
+      ];
+      const url = buildWhatsappUrl(rsvpWhatsapp, lines.join('\n'));
+      if (!url) {
+        setStatus(FORM_STATUS.ERROR);
+        return;
+      }
+      window.open(url, '_blank', 'noopener');
+      setStatus(FORM_STATUS.SUCCESS);
+      return;
+    }
+
+    setStatus(FORM_STATUS.LOADING);
+    const payload = {
+      guestName,
+      attendance: isAttending ? 'yes' : 'no',
+      attendanceDetail: attendanceLabel,
+      companions: companionsCount,
+      cupo: cupo ?? '',
+      ...Object.fromEntries(answeredQuestions.map((q) => [q.label, q.value])),
+    };
+    const success = await submitRsvp(payload);
+    setStatus(success ? FORM_STATUS.SUCCESS : FORM_STATUS.ERROR);
+  };
 
   return (
     <section className="rsvp" id="rsvp">
@@ -41,15 +155,15 @@ const RsvpForm = () => {
         >
           <FormField
             label={FORM_LABELS.GUEST_NAME}
-            htmlFor={FORM_FIELD_NAMES.GUEST_NAME}
-            error={errors[FORM_FIELD_NAMES.GUEST_NAME]}
+            htmlFor="guestName"
+            error={errors.guestName}
           >
             <input
-              id={FORM_FIELD_NAMES.GUEST_NAME}
+              id="guestName"
               type="text"
               placeholder={FORM_PLACEHOLDERS.GUEST_NAME}
-              value={formState[FORM_FIELD_NAMES.GUEST_NAME]}
-              onChange={(e) => handleFieldChange(FORM_FIELD_NAMES.GUEST_NAME, e.target.value)}
+              value={guestName}
+              onChange={(e) => setGuestName(e.target.value)}
               disabled={isSubmitting}
               autoComplete="name"
             />
@@ -57,77 +171,58 @@ const RsvpForm = () => {
 
           <FormField
             label={FORM_LABELS.ATTENDANCE}
-            htmlFor={FORM_FIELD_NAMES.ATTENDANCE}
-            error={errors[FORM_FIELD_NAMES.ATTENDANCE]}
+            htmlFor="attendance"
+            error={errors.attendance}
           >
             <select
-              id={FORM_FIELD_NAMES.ATTENDANCE}
-              value={formState[FORM_FIELD_NAMES.ATTENDANCE]}
-              onChange={(e) => handleFieldChange(FORM_FIELD_NAMES.ATTENDANCE, e.target.value)}
+              id="attendance"
+              value={attendance}
+              onChange={(e) => setAttendance(e.target.value)}
               disabled={isSubmitting}
             >
               <option value="">Selecciona una opción</option>
-              {attendanceOptions}
+              {attendanceChoices.map(({ value, label }) => (
+                <option key={value} value={value}>{label}</option>
+              ))}
             </select>
           </FormField>
 
-          <FormField
-            label={FORM_LABELS.GUEST_COUNT}
-            htmlFor={FORM_FIELD_NAMES.GUEST_COUNT}
-          >
-            <input
-              id={FORM_FIELD_NAMES.GUEST_COUNT}
-              type="number"
-              min="1"
-              max="10"
-              placeholder={FORM_PLACEHOLDERS.GUEST_COUNT}
-              value={formState[FORM_FIELD_NAMES.GUEST_COUNT]}
-              onChange={(e) => handleFieldChange(FORM_FIELD_NAMES.GUEST_COUNT, e.target.value)}
-              disabled={isSubmitting}
-            />
-          </FormField>
+          {cupo === null && isAttending && (
+            <FormField label={FORM_LABELS.GUEST_COUNT} htmlFor="companions">
+              <input
+                id="companions"
+                type="number"
+                min="1"
+                max="10"
+                placeholder={FORM_PLACEHOLDERS.GUEST_COUNT}
+                value={companions}
+                onChange={(e) => setCompanions(e.target.value)}
+                disabled={isSubmitting}
+              />
+            </FormField>
+          )}
 
-          <FormField
-            label={FORM_LABELS.DIETARY}
-            htmlFor={FORM_FIELD_NAMES.DIETARY}
-          >
-            <input
-              id={FORM_FIELD_NAMES.DIETARY}
-              type="text"
-              placeholder={FORM_PLACEHOLDERS.DIETARY}
-              value={formState[FORM_FIELD_NAMES.DIETARY]}
-              onChange={(e) => handleFieldChange(FORM_FIELD_NAMES.DIETARY, e.target.value)}
-              disabled={isSubmitting}
-            />
-          </FormField>
-
-          <FormField
-            label={FORM_LABELS.SONG_REQUEST}
-            htmlFor={FORM_FIELD_NAMES.SONG_REQUEST}
-          >
-            <input
-              id={FORM_FIELD_NAMES.SONG_REQUEST}
-              type="text"
-              placeholder={FORM_PLACEHOLDERS.SONG_REQUEST}
-              value={formState[FORM_FIELD_NAMES.SONG_REQUEST]}
-              onChange={(e) => handleFieldChange(FORM_FIELD_NAMES.SONG_REQUEST, e.target.value)}
-              disabled={isSubmitting}
-            />
-          </FormField>
-
-          <FormField
-            label={FORM_LABELS.MESSAGE}
-            htmlFor={FORM_FIELD_NAMES.MESSAGE}
-          >
-            <textarea
-              id={FORM_FIELD_NAMES.MESSAGE}
-              placeholder={FORM_PLACEHOLDERS.MESSAGE}
-              value={formState[FORM_FIELD_NAMES.MESSAGE]}
-              onChange={(e) => handleFieldChange(FORM_FIELD_NAMES.MESSAGE, e.target.value)}
-              disabled={isSubmitting}
-              rows="4"
-            />
-          </FormField>
+          {questions.map((q) => (
+            <FormField key={q.id} label={q.label} htmlFor={`question-${q.id}`}>
+              {q.type === 'textarea' ? (
+                <textarea
+                  id={`question-${q.id}`}
+                  value={answers[q.id] ?? ''}
+                  onChange={(e) => setAnswer(q.id, e.target.value)}
+                  disabled={isSubmitting}
+                  rows="4"
+                />
+              ) : (
+                <input
+                  id={`question-${q.id}`}
+                  type="text"
+                  value={answers[q.id] ?? ''}
+                  onChange={(e) => setAnswer(q.id, e.target.value)}
+                  disabled={isSubmitting}
+                />
+              )}
+            </FormField>
+          ))}
 
           <div className="rsvp__submit-row">
             <button
@@ -135,7 +230,9 @@ const RsvpForm = () => {
               className="rsvp__submit"
               disabled={isSubmitting || isSuccess}
             >
-              {isSubmitting ? 'Enviando…' : FORM_LABELS.SUBMIT}
+              {isSubmitting
+                ? 'Enviando…'
+                : type === 'whatsapp' ? 'CONFIRMAR POR WHATSAPP' : FORM_LABELS.SUBMIT}
             </button>
           </div>
 

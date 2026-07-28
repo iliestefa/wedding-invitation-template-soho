@@ -8,7 +8,7 @@ import ScheduleRow from './ScheduleRow/ScheduleRow';
 import './Schedule.scss';
 
 const Schedule = () => {
-  const { scheduleItems, weddingDateDisplay } = useTemplateData();
+  const { scheduleIntro, scheduleItems, weddingDateDisplay } = useTemplateData();
   const revealRef = useIntersectionObserver();
 
   const lastIndex = scheduleItems.length - 1;
@@ -23,7 +23,7 @@ const Schedule = () => {
 
         <aside className="schedule__aside">
           <p className="schedule__aside-quote">
-            "Cada momento del día fue pensado con amor para compartirlo con ustedes."
+            "{scheduleIntro}"
           </p>
           <span className="schedule__aside-rule" aria-hidden="true" />
           <span className="schedule__aside-date">{weddingDateDisplay}</span>

@@ -48,7 +48,8 @@
 
   &__field {
     display: grid;
-    grid-template-columns: 80px 1fr auto;
+    // la columna del label crece hasta el texto más largo (ej. "Identificación")
+    grid-template-columns: minmax(80px, max-content) 1fr auto;
     align-items: center;
     gap: 0.75rem;
 

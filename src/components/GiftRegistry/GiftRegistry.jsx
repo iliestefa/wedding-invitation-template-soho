@@ -32,9 +32,11 @@ const GiftRegistry = () => {
           {giftRegistryIntro}
         </p>
 
-        <div className="gift-registry__cards">
-          {accountCards}
-        </div>
+        {bankAccounts.length > 0 && (
+          <div className="gift-registry__cards">
+            {accountCards}
+          </div>
+        )}
       </div>
     </section>
   );

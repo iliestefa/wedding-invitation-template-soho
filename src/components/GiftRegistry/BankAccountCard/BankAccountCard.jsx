@@ -38,12 +38,12 @@ const BankAccountCard = ({ bankName, ownerName, accountAlias, cbu, accountType, 
 
       <div className="bank-card__fields">
         <div className="bank-card__field">
-          <span className="bank-card__field-label">Alias</span>
+          <span className="bank-card__field-label">Identificación</span>
           <span className="bank-card__field-value">{accountAlias}</span>
           <button
             className={`bank-card__copy ${aliascopied ? 'bank-card__copy--done' : ''}`}
             onClick={handleCopyAlias}
-            aria-label={`Copiar alias ${accountAlias}`}
+            aria-label={`Copiar identificación ${accountAlias}`}
           >
             {aliascopied ? 'Copiado ✓' : 'Copiar'}
           </button>

@@ -8,6 +8,10 @@ export const WEDDING_DATE_ISO = "2026-09-05";
 export const WEDDING_DATE_DISPLAY = "05 · 09 · 2026";
 export const WEDDING_YEAR = "2026";
 
+// ─── Eventos ──────────────────────────────────────────────────────────────────
+// 'separate' (lugares distintos) | 'same' (mismo lugar) | 'reception-only' (solo recepción)
+export const EVENTS_MODE = "separate";
+
 // ─── Ceremonia ────────────────────────────────────────────────────────────────
 export const CEREMONY_TIME = "17:00 hrs";
 export const CEREMONY_VENUE_NAME = "Iglesia del Pilar";
@@ -59,6 +63,9 @@ export const STORY_ITEMS = [
 ];
 
 // ─── Cronograma ───────────────────────────────────────────────────────────────
+export const SCHEDULE_INTRO =
+  "Cada momento del día fue pensado con amor para compartirlo con ustedes.";
+
 export const SCHEDULE_ITEMS = [
   { id: "llegada", time: "16:30", label: "Llegada a la Iglesia", icon: "🕌" },
   { id: "ceremonia", time: "17:00", label: "Ceremonia Religiosa", icon: "💍" },
@@ -105,7 +112,7 @@ export const BANK_ACCOUNTS = [
     ownerName: "Sofia Morales",
     bankName: "Banco Pichincha",
     accountType: "Cuenta de Ahorros",
-    accountAlias: "sofia.morales",
+    accountAlias: "1712345678",
     cbu: "2200123456789012",
     accountNumberLabel: "N° de Cuenta",
   },
@@ -114,7 +121,7 @@ export const BANK_ACCOUNTS = [
     ownerName: "Alejandro Gómez",
     bankName: "Banco Guayaquil",
     accountType: "Cuenta Corriente",
-    accountAlias: "alejandro.gomez",
+    accountAlias: "0987654321",
     cbu: "0200987654321098",
     accountNumberLabel: "N° de Cuenta",
   },
@@ -122,6 +129,23 @@ export const BANK_ACCOUNTS = [
 
 // ─── RSVP ─────────────────────────────────────────────────────────────────────
 export const RSVP_DEADLINE = "01 de Julio 2026";
+
+// 'whatsapp' (mensaje al número) | 'sheets' (formulario → Google Sheets) | 'per-guest' (link único por invitado)
+export const RSVP_TYPE = "sheets";
+export const RSVP_WHATSAPP = "";
+
+// 'free' (acompañantes libres, un solo link) | 'limited' (un link por cupo: ?cupos=N)
+export const RSVP_COMPANIONS_MODE = "free";
+export const RSVP_CUPOS = [0, 1, 2];
+
+export const RSVP_QUESTIONS = [
+  { id: "dietary", label: "Restricciones alimentarias o alergias",       type: "text" },
+  { id: "song",    label: "Una canción que no puede faltar en la pista", type: "text" },
+  { id: "message", label: "Un mensaje para los novios",                  type: "textarea" },
+];
+
+// Solo para RSVP_TYPE 'per-guest': [{ id, name, maxCompanions }]
+export const RSVP_GUESTS = [];
 
 // ─── Footer ───────────────────────────────────────────────────────────────────
 export const FOOTER_MESSAGE = "Nos mueve el amor, nos une la familia.";

@@ -90,7 +90,17 @@
     font-size: 0.6rem;
     font-weight: 300;
     letter-spacing: 0.2em;
-    color: rgba(122, 111, 100, 0.5);
-    margin: 1.5rem 0 0;
+    color: rgba(255, 255, 255, 0.85);
+    margin: 3.5rem 0 0;
+  }
+
+  &__credit-link {
+    color: $color-gold;
+    text-decoration: none;
+    transition: color $dur-fast;
+
+    &:hover {
+      color: $color-text;
+    }
   }
 }

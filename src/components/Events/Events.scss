@@ -32,4 +32,65 @@
       display: none;
     }
   }
+
+  // Modo "mismo lugar": horas lado a lado separadas por una línea
+  &__times {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2.5rem;
+    margin-bottom: 2.5rem;
+  }
+
+  &__time {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    text-align: center;
+  }
+
+  &__time-value {
+    font-family: $font-display;
+    font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+    font-weight: 400;
+    color: $color-text;
+  }
+
+  &__time-label {
+    @include eyebrow;
+  }
+
+  &__times-divider {
+    width: 1px;
+    height: 52px;
+    background: $color-border;
+  }
+
+  // Modos "mismo lugar" y "solo recepción": una sola tarjeta centrada
+  &__single {
+    max-width: 560px;
+    margin: 0 auto;
+    text-align: center;
+
+    .event-card__rule {
+      margin: 0 auto;
+    }
+
+    // detalles apilados y centrados (label arriba, valor debajo)
+    .event-card__details {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .event-card__detail {
+      display: block;
+    }
+
+    .event-card__detail-label {
+      display: block;
+      padding-top: 0;
+      margin-bottom: 0.35rem;
+    }
+  }
 }
