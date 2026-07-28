@@ -2,11 +2,6 @@
   @include section-padding;
   background-color: $color-bg;
 
-  // Carrusel pausado mientras el lightbox está abierto
-  &--paused .gallery__track {
-    animation-play-state: paused;
-  }
-
   &__inner {
     @include section-inner;
 
@@ -16,42 +11,43 @@
 
   &__grid {
     @include reveal-ready;
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    // dense rellena los huecos que dejan las fotos con span al reordenar
+    grid-auto-flow: dense;
     gap: 0.4rem;
-    height: min(65vh, 560px);
-    overflow: hidden;
 
     @include desktop {
+      grid-template-columns: repeat(4, 1fr);
       gap: 0.6rem;
-      height: min(75vh, 680px);
     }
-  }
-
-  &__column {
-    flex: 1 1 0;
-    min-width: 0;
-  }
-
-  &__track {
-    display: flex;
-    flex-direction: column;
-    animation: galleryScrollUp 65s linear infinite;
-    will-change: transform;
-  }
-
-  &__column--down .gallery__track {
-    animation: galleryScrollDown 78s linear infinite;
   }
 
   &__item {
     aspect-ratio: 1 / 1;
-    flex-shrink: 0;
     overflow: hidden;
-    // El margen hace de gap: debe ser uniforme para que el loop (-50%) sea perfecto
-    margin-bottom: 0.4rem;
+    margin: 0;
 
-    @include desktop {
-      margin-bottom: 0.6rem;
+    // Foto destacada: cuadrado grande de 2×2 en móvil y desktop
+    &--featured {
+      grid-column: span 2;
+      grid-row: span 2;
+    }
+
+    // Foto ancha: fila completa solo en móvil; en desktop vuelve a 1×1
+    &--wide {
+      grid-column: 1 / -1;
+      aspect-ratio: 3 / 1;
+
+      @include desktop {
+        grid-column: auto;
+        aspect-ratio: 1 / 1;
+      }
+
+      // Los novios están en el tercio inferior de la foto (pirámides arriba)
+      .gallery__image {
+        object-position: center 70%;
+      }
     }
   }
 
@@ -75,21 +71,5 @@
     .gallery__item:hover & {
       transform: scale(1.04);
     }
-  }
-}
-
-@keyframes galleryScrollUp {
-  from { transform: translateY(0); }
-  to   { transform: translateY(-50%); }
-}
-
-@keyframes galleryScrollDown {
-  from { transform: translateY(-50%); }
-  to   { transform: translateY(0); }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .gallery__track {
-    animation: none !important;
   }
 }

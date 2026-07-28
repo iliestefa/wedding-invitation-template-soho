@@ -11,12 +11,10 @@ const Events = () => {
     ceremonyVenueName,
     ceremonyVenueAddress,
     ceremonyMapsLink,
-    ceremonyMapsEmbedSrc,
     receptionTime,
     receptionVenueName,
     receptionVenueAddress,
     receptionMapsLink,
-    receptionMapsEmbedSrc,
   } = useTemplateData();
 
   return (
@@ -32,7 +30,6 @@ const Events = () => {
               time={ceremonyTime}
               address={ceremonyVenueAddress}
               mapsLink={ceremonyMapsLink}
-              mapsEmbedSrc={ceremonyMapsEmbedSrc}
             />
           </div>
 
@@ -45,7 +42,6 @@ const Events = () => {
               time={receptionTime}
               address={receptionVenueAddress}
               mapsLink={receptionMapsLink}
-              mapsEmbedSrc={receptionMapsEmbedSrc}
             />
           </div>
         </div>

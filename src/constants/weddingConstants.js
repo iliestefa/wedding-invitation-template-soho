@@ -125,14 +125,14 @@ export const BANK_ACCOUNTS = [
 ];
 
 // ─── Galería ──────────────────────────────────────────────────────────────────
-export const GALLERY_IMAGES = Array.from({ length: 13 }, (_, index) => {
-  const number = index + 1;
-  return {
-    id: `galeria-${number}`,
-    src: `/${number}.jpeg`,
-    alt: `Elena y Luis - foto ${number}`,
-  };
-});
+// La primera foto es la destacada (2×2 en la grilla); la 12 abre la galería
+const GALLERY_IMAGE_ORDER = [12, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 1, 13];
+
+export const GALLERY_IMAGES = GALLERY_IMAGE_ORDER.map((imageNumber) => ({
+  id: `galeria-${imageNumber}`,
+  src: `/${imageNumber}.jpeg`,
+  alt: `Elena y Luis - foto ${imageNumber}`,
+}));
 
 // ─── RSVP ─────────────────────────────────────────────────────────────────────
 export const RSVP_DEADLINE = "18 noviembre 2026";
@@ -145,7 +145,6 @@ export const IMAGE_HERO = "/compromiso.webp";
 export const IMAGE_HERO_DESK = "/compromiso-desk.webp";
 export const IMAGE_STORY =
   "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=1200&q=80&auto=format&fit=crop";
-export const IMAGE_DRESS_CODE =
-  "https://images.unsplash.com/photo-1765615191957-eaa2feb8c00d?w=1600&q=90&auto=format&fit=crop";
+export const IMAGE_DRESS_CODE = "/dresscode.jpg";
 export const IMAGE_RINGS =
   "https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?w=900&q=80&auto=format&fit=crop";

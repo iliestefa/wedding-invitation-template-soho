@@ -3,7 +3,6 @@ import {
   RECEPTION_VENUE_NAME,
   RECEPTION_VENUE_ADDRESS,
   RECEPTION_MAPS_LINK,
-  RECEPTION_MAPS_EMBED_SRC,
 } from '../../constants';
 
 import SectionHeader from '../shared/SectionHeader/SectionHeader';
@@ -22,7 +21,6 @@ const Reception = () => (
         time={RECEPTION_TIME}
         address={RECEPTION_VENUE_ADDRESS}
         mapsLink={RECEPTION_MAPS_LINK}
-        mapsEmbedSrc={RECEPTION_MAPS_EMBED_SRC}
       />
     </div>
   </section>

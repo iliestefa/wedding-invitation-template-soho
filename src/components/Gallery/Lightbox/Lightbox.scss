@@ -29,6 +29,7 @@
 
   &__close {
     position: absolute;
+    z-index: 1;
     top: 1.25rem;
     right: 1.5rem;
     background: none;
@@ -49,6 +50,7 @@
 
   &__nav {
     position: absolute;
+    z-index: 1;
     top: 50%;
     transform: translateY(-50%);
     background: none;
@@ -78,6 +80,7 @@
 
   &__counter {
     position: absolute;
+    z-index: 1;
     bottom: 1.5rem;
     left: 50%;
     transform: translateX(-50%);

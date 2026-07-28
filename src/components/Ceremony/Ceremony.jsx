@@ -3,7 +3,6 @@ import {
   CEREMONY_VENUE_NAME,
   CEREMONY_VENUE_ADDRESS,
   CEREMONY_MAPS_LINK,
-  CEREMONY_MAPS_EMBED_SRC,
 } from '../../constants';
 
 import SectionHeader from '../shared/SectionHeader/SectionHeader';
@@ -22,7 +21,6 @@ const Ceremony = () => (
         time={CEREMONY_TIME}
         address={CEREMONY_VENUE_ADDRESS}
         mapsLink={CEREMONY_MAPS_LINK}
-        mapsEmbedSrc={CEREMONY_MAPS_EMBED_SRC}
       />
     </div>
   </section>
