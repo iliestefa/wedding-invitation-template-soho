@@ -6,6 +6,7 @@ import Events from './components/Events/Events';
 import Schedule from './components/Schedule/Schedule';
 import DressCode from './components/DressCode/DressCode';
 import GiftRegistry from './components/GiftRegistry/GiftRegistry';
+import Gallery from './components/Gallery/Gallery';
 import RsvpForm from './components/RsvpForm/RsvpForm';
 import Footer from './components/Footer/Footer';
 
@@ -21,6 +22,7 @@ const App = () => (
     <Schedule />
     <DressCode />
     <GiftRegistry />
+    <Gallery />
     <RsvpForm />
     <Footer />
   </div>

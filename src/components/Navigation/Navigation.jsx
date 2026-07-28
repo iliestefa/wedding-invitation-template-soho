@@ -10,6 +10,7 @@ const NAV_LINKS = [
   { id: 'nav-cronograma', href: '#schedule',  label: 'Cronograma' },
   { id: 'nav-vestimenta', href: '#dresscode', label: 'Vestimenta' },
   { id: 'nav-regalos',    href: '#gifts',     label: 'Regalos' },
+  { id: 'nav-galeria',    href: '#gallery',   label: 'Galería' },
   { id: 'nav-rsvp',       href: '#rsvp',      label: 'RSVP' },
 ];
 

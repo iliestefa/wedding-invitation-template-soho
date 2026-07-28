@@ -1,0 +1,129 @@
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background-color: rgba($color-bg-dark, 0.94);
+  animation: heroFadeInSlow $dur-base $ease-out both;
+  cursor: zoom-out;
+
+  &__image {
+    max-width: min(92vw, 900px);
+    max-height: 86vh;
+    object-fit: contain;
+    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.5);
+    animation: fadeUp $dur-base $ease-out both;
+    cursor: default;
+
+    &--from-right {
+      animation: lightboxSlideFromRight $dur-base $ease-out both;
+    }
+
+    &--from-left {
+      animation: lightboxSlideFromLeft $dur-base $ease-out both;
+    }
+  }
+
+  &__close {
+    position: absolute;
+    top: 1.25rem;
+    right: 1.5rem;
+    background: none;
+    border: none;
+    font-family: $font-display;
+    font-weight: 300;
+    font-size: 2.4rem;
+    line-height: 1;
+    color: $color-white;
+    cursor: pointer;
+    transition: opacity $dur-fast $ease-out;
+    @include focus-ring;
+
+    &:hover {
+      opacity: 0.6;
+    }
+  }
+
+  &__nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    font-family: $font-display;
+    font-weight: 300;
+    font-size: 3rem;
+    line-height: 1;
+    color: $color-white;
+    cursor: pointer;
+    padding: 1rem;
+    transition: opacity $dur-fast $ease-out;
+    @include focus-ring;
+
+    &:hover {
+      opacity: 0.6;
+    }
+
+    &--prev {
+      left: 1rem;
+    }
+
+    &--next {
+      right: 1rem;
+    }
+  }
+
+  &__counter {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: $font-body;
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.3em;
+    color: rgba($color-white, 0.7);
+  }
+
+  @include mobile {
+    padding: 1rem;
+
+    &__nav {
+      font-size: 2.2rem;
+      padding: 0.75rem 0.5rem;
+
+      &--prev {
+        left: 0.25rem;
+      }
+
+      &--next {
+        right: 0.25rem;
+      }
+    }
+  }
+}
+
+@keyframes lightboxSlideFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(72px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes lightboxSlideFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-72px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

@@ -124,6 +124,16 @@ export const BANK_ACCOUNTS = [
   },
 ];
 
+// ─── Galería ──────────────────────────────────────────────────────────────────
+export const GALLERY_IMAGES = Array.from({ length: 13 }, (_, index) => {
+  const number = index + 1;
+  return {
+    id: `galeria-${number}`,
+    src: `/${number}.jpeg`,
+    alt: `Elena y Luis - foto ${number}`,
+  };
+});
+
 // ─── RSVP ─────────────────────────────────────────────────────────────────────
 export const RSVP_DEADLINE = "18 noviembre 2026";
 
