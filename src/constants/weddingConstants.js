@@ -125,8 +125,11 @@ export const BANK_ACCOUNTS = [
 ];
 
 // ─── Galería ──────────────────────────────────────────────────────────────────
+export const GALLERY_INTRO =
+  "Cada foto guarda un recuerdo que nos trajo hasta este gran día.";
+
 // La primera foto es la destacada (2×2 en la grilla); la 12 abre la galería
-const GALLERY_IMAGE_ORDER = [12, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 1, 13];
+const GALLERY_IMAGE_ORDER = [12, 2, 3, 4, 5, 6, 7, 8, 9, 11, 1, 13];
 
 export const GALLERY_IMAGES = GALLERY_IMAGE_ORDER.map((imageNumber) => ({
   id: `galeria-${imageNumber}`,

@@ -7,6 +7,25 @@
 
     .section-header__eyebrow { color: #1e3a6e; }
     .section-header__rule    { background: #1e3a6e; }
+
+    // La descripción va pegada al título: mitad del margen por defecto (4rem/3rem)
+    .section-header { margin-bottom: 2rem; }
+
+    @include tablet {
+      .section-header { margin-bottom: 1.5rem; }
+    }
+  }
+
+  &__intro {
+    @include reveal-ready;
+    font-family: $font-script;
+    font-style: italic;
+    font-size: 1.15rem;
+    font-weight: 300;
+    color: #1e3a6e;
+    line-height: 1.8;
+    text-align: center;
+    margin: 0 0 2.5rem;
   }
 
   &__grid {
@@ -34,14 +53,19 @@
       grid-row: span 2;
     }
 
-    // Foto ancha: fila completa solo en móvil; en desktop vuelve a 1×1
+    // Foto ancha: 2 columnas solo en desktop para que la grilla cierre exacta;
+    // en móvil es 1×1 normal
     &--wide {
-      grid-column: 1 / -1;
-      aspect-ratio: 3 / 1;
-
       @include desktop {
-        grid-column: auto;
-        aspect-ratio: 1 / 1;
+        grid-column: span 2;
+        // Sin ratio propio: se estira al alto exacto de las cuadradas de su fila
+        aspect-ratio: auto;
+        position: relative;
+
+        .gallery__item-button {
+          position: absolute;
+          inset: 0;
+        }
       }
 
       // Los novios están en el tercio inferior de la foto (pirámides arriba)

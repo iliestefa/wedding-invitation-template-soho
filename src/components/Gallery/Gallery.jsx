@@ -1,22 +1,23 @@
-import { useState } from 'react';
+import { useState } from "react";
 
-import useIntersectionObserver from '../../hooks/useIntersectionObserver';
+import useIntersectionObserver from "../../hooks/useIntersectionObserver";
 
-import { useTemplateData } from '../../context/TemplateContext';
+import { useTemplateData } from "../../context/TemplateContext";
 
-import SectionHeader from '../shared/SectionHeader/SectionHeader';
-import Lightbox from './Lightbox/Lightbox';
+import SectionHeader from "../shared/SectionHeader/SectionHeader";
+import Lightbox from "./Lightbox/Lightbox";
 
-import './Gallery.scss';
+import "./Gallery.scss";
 
-// Con 13 fotos la grilla cierra exacta en ambos tamaños:
-// móvil (3 col): 11×1 + 1 foto 2×2 + 1 foto a fila completa = 18 celdas (6 filas)
-// desktop (4 col): 11×1 + 1 foto 2×2 + esa misma como 1×1 = 16 celdas (4 filas)
+// Con 12 fotos la grilla cierra exacta en ambos tamaños:
+// móvil (3 col): 11×1 + 1 foto 2×2 = 15 celdas (5 filas justas)
+// desktop (4 col): 10×1 + 1 foto 2×2 + 1 foto 2×1 = 16 celdas (4 filas justas)
 const FEATURED_SQUARE_INDEX = 0;
 const FEATURED_WIDE_INDEX = 7;
 
 const Gallery = () => {
-  const { galleryImages } = useTemplateData();
+  const { galleryImages, galleryIntro } = useTemplateData();
+  const introRevealRef = useIntersectionObserver();
   const revealRef = useIntersectionObserver();
   const [lightboxIndex, setLightboxIndex] = useState(null);
 
@@ -26,10 +27,10 @@ const Gallery = () => {
   const galleryItems = galleryImages.map(({ id, src, alt }, imageIndex) => {
     const featuredClass =
       imageIndex === FEATURED_SQUARE_INDEX
-        ? ' gallery__item--featured'
+        ? " gallery__item--featured"
         : imageIndex === FEATURED_WIDE_INDEX
-          ? ' gallery__item--wide'
-          : '';
+          ? " gallery__item--wide"
+          : "";
 
     return (
       <figure key={id} className={`gallery__item${featuredClass}`}>
@@ -48,7 +49,9 @@ const Gallery = () => {
   return (
     <section className="gallery" id="gallery">
       <div className="gallery__inner">
-        <SectionHeader eyebrow="Galería" title="Momentos Juntos" />
+        <SectionHeader eyebrow="Galería" title="Un pedacito de nosotros" />
+
+        <p ref={introRevealRef} className="gallery__intro">{galleryIntro}</p>
 
         <div ref={revealRef} className="gallery__grid">
           {galleryItems}
