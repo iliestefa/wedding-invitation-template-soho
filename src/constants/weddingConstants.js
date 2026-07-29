@@ -104,24 +104,6 @@ export const BANK_ACCOUNTS = [
     cbu: "25047473",
     accountNumberLabel: "N° de Cuenta",
   },
-  {
-    id: "cuenta-bolivariano",
-    ownerName: "Elena Toaza",
-    bankName: "Banco Bolivariano",
-    accountType: "Cuenta de Ahorros",
-    accountAlias: "Elena Toaza",
-    cbu: "0951126296",
-    accountNumberLabel: "N° de Cuenta",
-  },
-  {
-    id: "cuenta-produbanco",
-    ownerName: "Elena Toaza",
-    bankName: "Produbanco",
-    accountType: "Cuenta de Ahorros",
-    accountAlias: "Elena Toaza",
-    cbu: "12042106538",
-    accountNumberLabel: "N° de Cuenta",
-  },
 ];
 
 // ─── Galería ──────────────────────────────────────────────────────────────────
