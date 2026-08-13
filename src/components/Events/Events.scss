@@ -1,5 +1,6 @@
 .events {
-  background-color: $color-bg-alt;
+  background-color: var(--color-bg-alt);
+  background-image: $texture-floral;
   @include section-padding;
 
   &__inner {
@@ -23,7 +24,7 @@
   }
 
   &__divider {
-    background: $color-border;
+    background: var(--color-border);
     height: 100%;
     min-height: 400px;
     align-self: stretch;
@@ -53,7 +54,7 @@
     font-family: $font-display;
     font-size: clamp(1.4rem, 2.5vw, 1.9rem);
     font-weight: 400;
-    color: $color-text;
+    color: var(--color-text);
   }
 
   &__time-label {
@@ -63,7 +64,7 @@
   &__times-divider {
     width: 1px;
     height: 52px;
-    background: $color-border;
+    background: var(--color-border);
   }
 
   // Modos "mismo lugar" y "solo recepción": una sola tarjeta centrada

@@ -1,5 +1,6 @@
 .countdown {
-  background-color: $color-bg-dark;
+  background-color: var(--color-bg-dark);
+  background-image: $texture-floral;
   @include section-padding;
   position: relative;
 
@@ -8,6 +9,7 @@
     position: absolute;
     inset: 0;
     background: radial-gradient(ellipse at center, rgba(196, 152, 90, 0.06) 0%, transparent 70%);
+    background: radial-gradient(ellipse at center, color-mix(in srgb, var(--color-gold) 6%, transparent) 0%, transparent 70%);
     pointer-events: none;
   }
 
@@ -25,7 +27,10 @@
     flex-wrap: wrap;
 
     @include mobile {
-      gap: 1rem;
+      // Nunca a dos filas: los 4 recuadros se comprimen (ver
+      // CountdownUnit.scss) en vez de saltar de línea.
+      flex-wrap: nowrap;
+      gap: 0.5rem;
     }
   }
 
@@ -33,7 +38,7 @@
     font-family: $font-script;
     font-style: italic;
     font-size: 1.5rem;
-    color: $color-gold;
+    color: var(--color-gold);
     margin-top: 2rem;
     animation: pulse 2s ease-in-out infinite;
   }

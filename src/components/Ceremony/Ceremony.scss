@@ -1,5 +1,6 @@
 .ceremony {
-  background-color: $color-bg-alt;
+  background-color: var(--color-bg-alt);
+  background-image: $texture-floral;
   @include section-padding;
 
   &__inner {

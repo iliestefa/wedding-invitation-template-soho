@@ -1,5 +1,6 @@
 .rsvp {
-  background-color: $color-bg;
+  background-color: var(--color-bg);
+  background-image: $texture-floral;
   @include section-padding;
 
   &__inner {
@@ -29,8 +30,8 @@
       cursor: not-allowed;
 
       &:hover {
-        background-color: $color-gold;
-        border-color: $color-gold;
+        background-color: var(--color-gold);
+        border-color: var(--color-gold);
       }
     }
 

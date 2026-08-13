@@ -151,6 +151,12 @@ export const RSVP_GUESTS = [];
 export const FOOTER_MESSAGE = "Nos mueve el amor, nos une la familia.";
 export const FOOTER_CONTACT_EMAIL = "boda@sofiayalejandro2026.com";
 
+// ─── Paleta de colores ────────────────────────────────────────────────────────
+// null → paleta original de la plantilla. Para personalizarla:
+// { id: 'custom', bg: '#faf5ef', accent: '#c4985a', text: '#1e1610' }
+// (ver src/utils/palettes.js — el resto de tonos se derivan solos)
+export const COLOR_PALETTE = null;
+
 // ─── Imágenes (Unsplash, sin API key) ─────────────────────────────────────────
 export const IMAGE_HERO =
   "https://images.unsplash.com/photo-1519741497674-611481863552?w=1920&q=80&auto=format&fit=crop";

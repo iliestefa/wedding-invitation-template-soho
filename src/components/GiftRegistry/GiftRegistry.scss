@@ -1,5 +1,6 @@
 .gift-registry {
-  background-color: $color-bg-alt;
+  background-color: var(--color-bg-alt);
+  background-image: $texture-floral;
   @include section-padding;
 
   &__inner {
@@ -17,7 +18,7 @@
     font-style: italic;
     font-size: 1.15rem;
     font-weight: 300;
-    color: $color-text-muted;
+    color: var(--color-text-muted);
     line-height: 1.8;
     text-align: center;
     margin: 0 0 2rem;

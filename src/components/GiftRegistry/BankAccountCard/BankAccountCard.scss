@@ -1,11 +1,11 @@
 .bank-card {
   border: $border-thin;
   padding: 2rem;
-  background-color: $color-white;
+  background-color: var(--color-white);
   transition: box-shadow $dur-base $ease-out, border-color $dur-base $ease-out;
 
   &:hover {
-    border-color: $color-gold-pale;
+    border-color: var(--color-gold-pale);
     box-shadow: 0 4px 24px rgba(30, 22, 16, 0.07);
   }
 
@@ -22,14 +22,14 @@
     font-family: $font-display;
     font-size: 1.1rem;
     font-weight: 400;
-    color: $color-text;
+    color: var(--color-text);
   }
 
   &__owner {
     font-family: $font-body;
     font-size: 0.78rem;
     font-weight: 300;
-    color: $color-text-muted;
+    color: var(--color-text-muted);
   }
 
   &__type {
@@ -65,14 +65,14 @@
     font-weight: 700;
     letter-spacing: 0.3em;
     text-transform: uppercase;
-    color: $color-gold;
+    color: var(--color-gold);
   }
 
   &__field-value {
     font-family: $font-body;
     font-size: 0.85rem;
     font-weight: 300;
-    color: $color-text;
+    color: var(--color-text);
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -80,7 +80,7 @@
     &--mono {
       font-size: 0.75rem;
       letter-spacing: 0.08em;
-      color: $color-text-muted;
+      color: var(--color-text-muted);
     }
   }
 
@@ -90,9 +90,9 @@
     font-weight: 700;
     letter-spacing: 0.25em;
     text-transform: uppercase;
-    color: $color-gold;
+    color: var(--color-gold);
     background: none;
-    border: 1px solid $color-gold-pale;
+    border: 1px solid var(--color-gold-pale);
     padding: 0.4rem 0.8rem;
     cursor: pointer;
     white-space: nowrap;
@@ -101,12 +101,12 @@
     @include focus-ring;
 
     &:hover {
-      background-color: $color-gold-pale;
+      background-color: var(--color-gold-pale);
     }
 
     &--done {
-      color: $color-text-muted;
-      border-color: $color-border;
+      color: var(--color-text-muted);
+      border-color: var(--color-border);
     }
   }
 }

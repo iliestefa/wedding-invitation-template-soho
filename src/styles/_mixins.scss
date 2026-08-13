@@ -28,7 +28,7 @@
   font-weight: 700;
   letter-spacing: 0.5em;
   text-transform: uppercase;
-  color: $color-gold;
+  color: var(--color-gold);
 }
 
 @mixin eyebrow-script {
@@ -37,7 +37,7 @@
   font-size: 1.1rem;
   font-weight: 300;
   letter-spacing: 0.05em;
-  color: $color-gold;
+  color: var(--color-gold);
 }
 
 // ─── Decorative ──────────────────────────────────────────────────────────────
@@ -45,7 +45,7 @@
   display: block;
   width: $width;
   height: 1px;
-  background: $color-gold;
+  background: var(--color-gold);
   margin: 1.25rem auto;
 }
 
@@ -76,7 +76,7 @@
 // ─── Interactive ─────────────────────────────────────────────────────────────
 @mixin focus-ring {
   &:focus-visible {
-    outline: 2px solid $color-gold;
+    outline: 2px solid var(--color-gold);
     outline-offset: 3px;
     border-radius: 2px;
   }
@@ -100,23 +100,23 @@
 @mixin btn-gold {
   @include btn-base;
   background-color: transparent;
-  color: $color-gold;
+  color: var(--color-gold);
 
   &:hover {
-    background-color: $color-gold;
-    color: $color-bg;
+    background-color: var(--color-gold);
+    color: var(--color-bg);
   }
 }
 
 @mixin btn-gold-solid {
   @include btn-base;
-  background-color: $color-gold;
-  color: $color-bg;
-  border-color: $color-gold;
+  background-color: var(--color-gold);
+  color: var(--color-bg);
+  border-color: var(--color-gold);
 
   &:hover {
-    background-color: $color-gold-light;
-    border-color: $color-gold-light;
+    background-color: var(--color-gold-light);
+    border-color: var(--color-gold-light);
   }
 }
 

@@ -5,6 +5,7 @@
   gap: 0.75rem;
   padding: 2rem 1.5rem;
   border: 1px solid rgba(196, 152, 90, 0.3);
+  border-color: color-mix(in srgb, var(--color-gold) 30%, transparent);
   width: 130px;
   height: 130px;
   justify-content: center;
@@ -14,7 +15,7 @@
     font-family: $font-display;
     font-size: clamp(2.5rem, 5vw, 4rem);
     font-weight: 400;
-    color: $color-gold;
+    color: var(--color-gold);
     line-height: 1;
     letter-spacing: -0.02em;
   }
@@ -26,6 +27,7 @@
     letter-spacing: 0.15em;
     text-transform: uppercase;
     color: rgba(240, 224, 196, 0.6);
+    color: color-mix(in srgb, var(--color-gold-pale) 60%, transparent);
     white-space: nowrap;
   }
 
@@ -36,13 +38,19 @@
   }
 
   @include mobile {
-    width: 78px;
-    height: 78px;
-    padding: 0.75rem;
+    width: 70px;
+    height: 70px;
+    padding: 0.5rem;
+    flex-shrink: 1;
+    min-width: 0;
+
+    .countdown-unit__value {
+      font-size: clamp(1.6rem, 8vw, 2.2rem);
+    }
 
     .countdown-unit__label {
-      font-size: 0.42rem;
-      letter-spacing: 0.08em;
+      font-size: 0.4rem;
+      letter-spacing: 0.06em;
     }
   }
 }

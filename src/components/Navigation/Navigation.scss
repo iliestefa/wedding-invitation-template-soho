@@ -8,15 +8,16 @@
 
   &--scrolled {
     background-color: rgba(250, 245, 239, 0.92);
+    background-color: color-mix(in srgb, var(--color-bg) 92%, transparent);
     backdrop-filter: blur(12px);
-    box-shadow: 0 1px 0 $color-border;
+    box-shadow: 0 1px 0 var(--color-border);
 
     .nav__link {
-      color: $color-text;
+      color: var(--color-text);
     }
 
     .nav__burger span {
-      background: $color-text;
+      background: var(--color-text);
     }
   }
 
@@ -44,7 +45,7 @@
     font-family: $font-display;
     font-size: 1.4rem;
     font-weight: 400;
-    color: $color-gold;
+    color: var(--color-gold);
     line-height: 1;
   }
 
@@ -52,7 +53,7 @@
     font-family: $font-script;
     font-style: italic;
     font-size: 1rem;
-    color: $color-text-muted;
+    color: var(--color-text-muted);
     line-height: 1;
   }
 
@@ -81,7 +82,7 @@
     letter-spacing: 0.35em;
     text-transform: uppercase;
     text-decoration: none;
-    color: $color-white;
+    color: var(--color-white);
     transition: color $dur-fast $ease-out;
     position: relative;
 
@@ -92,12 +93,12 @@
       left: 0;
       width: 0;
       height: 1px;
-      background: $color-gold;
+      background: var(--color-gold);
       transition: width $dur-base $ease-out;
     }
 
     &:hover {
-      color: $color-gold;
+      color: var(--color-gold);
 
       &::after {
         width: 100%;
@@ -125,7 +126,7 @@
       display: block;
       width: 24px;
       height: 1px;
-      background: $color-white;
+      background: var(--color-white);
       transition: transform $dur-base $ease-out, opacity $dur-fast;
     }
 
@@ -140,6 +141,7 @@
   &__mobile {
     display: none;
     background-color: rgba(250, 245, 239, 0.97);
+    background-color: color-mix(in srgb, var(--color-bg) 97%, transparent);
     backdrop-filter: blur(12px);
     border-top: $border-thin;
 
@@ -158,10 +160,11 @@
   // Cuando el menú móvil está abierto: forzar fondo y colores oscuros en el header
   &:has(.nav__mobile--open) {
     background-color: rgba(250, 245, 239, 0.97) !important;
+    background-color: color-mix(in srgb, var(--color-bg) 97%, transparent) !important;
     backdrop-filter: blur(12px) !important;
 
-    .nav__link { color: $color-text !important; }
-    .nav__burger span { background: $color-text !important; }
+    .nav__link { color: var(--color-text) !important; }
+    .nav__burger span { background: var(--color-text) !important; }
   }
 
   &__mobile-list {

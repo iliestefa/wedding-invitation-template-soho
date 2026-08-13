@@ -1,5 +1,6 @@
 .story {
-  background-color: $color-bg;
+  background-color: var(--color-bg);
+  background-image: $texture-floral;
   @include section-padding;
 
   &__inner {
@@ -18,7 +19,7 @@
     font-style: italic;
     font-size: clamp(1.1rem, 2vw, 1.35rem);
     font-weight: 300;
-    color: $color-text-muted;
+    color: var(--color-text-muted);
     line-height: 1.8;
     text-align: center;
     margin-bottom: 4rem;
@@ -39,9 +40,9 @@
       width: 1px;
       background: linear-gradient(
         to bottom,
-        $color-gold 0%,
-        $color-border 50%,
-        rgba(224, 216, 204, 0) 100%
+        var(--color-gold) 0%,
+        var(--color-border) 50%,
+        transparent 100%
       );
 
       @include tablet {

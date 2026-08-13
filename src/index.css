@@ -15,8 +15,8 @@ html {
 body {
   font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
   font-weight: 300;
-  background-color: #faf5ef;
-  color: #1e1610;
+  background-color: var(--color-bg, #faf5ef);
+  color: var(--color-text, #1e1610);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

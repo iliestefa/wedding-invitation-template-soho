@@ -1,5 +1,6 @@
 .footer {
-  background-color: $color-bg-dark;
+  background-color: var(--color-bg-dark);
+  background-image: $texture-floral;
   @include section-padding;
   text-align: center;
   position: relative;
@@ -12,7 +13,7 @@
     transform: translateX(-50%);
     width: 1px;
     height: 60px;
-    background: linear-gradient(to bottom, transparent, $color-gold);
+    background: linear-gradient(to bottom, transparent, var(--color-gold));
     margin-top: -60px;
     pointer-events: none;
   }
@@ -30,7 +31,7 @@
     font-family: $font-display;
     font-size: 3rem;
     font-weight: 400;
-    color: $color-gold;
+    color: var(--color-gold);
     line-height: 1;
     letter-spacing: 0.15em;
     margin-bottom: 0.5rem;
@@ -40,7 +41,7 @@
     font-family: $font-display;
     font-size: clamp(1.6rem, 4vw, 2.5rem);
     font-weight: 400;
-    color: $color-white;
+    color: var(--color-white);
     margin: 0;
     line-height: 1.2;
   }
@@ -54,7 +55,7 @@
     font-style: italic;
     font-size: 1.1rem;
     font-weight: 300;
-    color: $color-gold-light;
+    color: var(--color-gold-light);
     letter-spacing: 0.15em;
     margin: 0;
   }
@@ -65,6 +66,7 @@
     font-size: 1.2rem;
     font-weight: 300;
     color: rgba(240, 224, 196, 0.7);
+    color: color-mix(in srgb, var(--color-gold-pale) 70%, transparent);
     line-height: 1.6;
     margin: 0.5rem 0;
   }
@@ -74,12 +76,12 @@
     font-size: 0.7rem;
     font-weight: 300;
     letter-spacing: 0.15em;
-    color: $color-text-muted;
+    color: var(--color-text-muted);
     text-decoration: none;
     transition: color $dur-fast $ease-out;
 
     &:hover {
-      color: $color-gold;
+      color: var(--color-gold);
     }
 
     @include focus-ring;
@@ -95,12 +97,12 @@
   }
 
   &__credit-link {
-    color: $color-gold;
+    color: var(--color-gold);
     text-decoration: none;
     transition: color $dur-fast;
 
     &:hover {
-      color: $color-text;
+      color: var(--color-text);
     }
   }
 }

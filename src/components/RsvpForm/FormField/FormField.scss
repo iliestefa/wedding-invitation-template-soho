@@ -9,7 +9,7 @@
     font-weight: 700;
     letter-spacing: 0.35em;
     text-transform: uppercase;
-    color: $color-text-muted;
+    color: var(--color-text-muted);
   }
 
   &__control {
@@ -19,23 +19,23 @@
       width: 100%;
       background: transparent;
       border: none;
-      border-bottom: 1px solid $color-border;
+      border-bottom: 1px solid var(--color-border);
       padding: 0.75rem 0;
       font-family: $font-body;
       font-size: 0.95rem;
       font-weight: 300;
-      color: $color-text;
+      color: var(--color-text);
       transition: border-color $dur-base $ease-out;
       appearance: none;
       border-radius: 0;
       outline: none;
 
       &::placeholder {
-        color: $color-border;
+        color: var(--color-border);
       }
 
       &:focus {
-        border-bottom-color: $color-gold;
+        border-bottom-color: var(--color-gold);
       }
     }
 
@@ -56,7 +56,7 @@
   &__error {
     font-family: $font-body;
     font-size: 0.75rem;
-    color: $color-terracotta;
+    color: var(--color-terracotta);
     animation: fadeUp 0.3s $ease-out;
   }
 
@@ -65,7 +65,7 @@
       input,
       textarea,
       select {
-        border-bottom-color: $color-terracotta;
+        border-bottom-color: var(--color-terracotta);
       }
     }
   }

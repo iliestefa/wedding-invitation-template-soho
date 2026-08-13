@@ -1,5 +1,6 @@
 .reception {
-  background-color: $color-bg;
+  background-color: var(--color-bg);
+  background-image: $texture-floral;
   @include section-padding;
 
   &__inner {

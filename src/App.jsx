@@ -1,3 +1,4 @@
+import { TemplateProvider } from './context/TemplateContext';
 import Navigation from './components/Navigation/Navigation';
 import Hero from './components/Hero/Hero';
 import Story from './components/Story/Story';
@@ -12,18 +13,20 @@ import Footer from './components/Footer/Footer';
 import './App.scss';
 
 const App = () => (
-  <div className="app">
-    <Navigation />
-    <Hero />
-    <Story />
-    <Countdown />
-    <Events />
-    <Schedule />
-    <DressCode />
-    <GiftRegistry />
-    <RsvpForm />
-    <Footer />
-  </div>
+  <TemplateProvider>
+    <div className="app">
+      <Navigation />
+      <Hero />
+      <Story />
+      <Countdown />
+      <Events />
+      <Schedule />
+      <DressCode />
+      <GiftRegistry />
+      <RsvpForm />
+      <Footer />
+    </div>
+  </TemplateProvider>
 );
 
 export default App;

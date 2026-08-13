@@ -1,5 +1,6 @@
 .dress-code {
-  background-color: $color-bg;
+  background-color: var(--color-bg);
+  background-image: $texture-floral;
   display: grid;
   grid-template-columns: 1fr 1fr;
   min-height: 600px;
@@ -46,7 +47,7 @@
     font-family: $font-body;
     font-size: 0.95rem;
     font-weight: 300;
-    color: $color-text-muted;
+    color: var(--color-text-muted);
     line-height: 1.75;
     margin: 0 0 2.5rem;
   }
@@ -59,7 +60,7 @@
 
   &__category {
     padding-left: 1.25rem;
-    border-left: 2px solid $color-gold-pale;
+    border-left: 2px solid var(--color-gold-pale);
   }
 
   &__category-label {
@@ -72,7 +73,7 @@
     font-family: $font-body;
     font-size: 0.9rem;
     font-weight: 300;
-    color: $color-text;
+    color: var(--color-text);
     line-height: 1.6;
     margin: 0;
   }

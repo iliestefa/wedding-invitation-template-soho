@@ -17,9 +17,9 @@
     width: 10px;
     height: 10px;
     border-radius: 50%;
-    background: $color-gold;
-    border: 2px solid $color-bg-alt;
-    box-shadow: 0 0 0 1px $color-gold;
+    background: var(--color-gold);
+    border: 2px solid var(--color-bg-alt);
+    box-shadow: 0 0 0 1px var(--color-gold);
     flex-shrink: 0;
     margin-top: 5px;
   }
@@ -29,7 +29,7 @@
     width: 1px;
     flex: 1;
     min-height: 44px;
-    background: $color-border;
+    background: var(--color-border);
     margin-top: 5px;
   }
 
@@ -46,7 +46,7 @@
     font-style: italic;
     font-size: 1.05rem;
     font-weight: 300;
-    color: $color-gold;
+    color: var(--color-gold);
     letter-spacing: 0.03em;
     text-align: right;
     line-height: 1.6;
@@ -62,7 +62,7 @@
     font-family: $font-body;
     font-size: 0.95rem;
     font-weight: 300;
-    color: $color-text;
+    color: var(--color-text);
     line-height: 1.6;
     margin: 0;
   }
