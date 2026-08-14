@@ -40,6 +40,7 @@ const RsvpForm = () => {
     rsvpCompanionsMode,
     rsvpCupos,
     rsvpQuestions,
+    weddingSlug,
   } = useTemplateData();
 
   const revealRef = useIntersectionObserver();
@@ -130,13 +131,28 @@ const RsvpForm = () => {
     }
 
     setStatus(FORM_STATUS.LOADING);
+    // Personas totales que representa esta confirmación (0 si no asiste).
+    // En modo cupos la respuesta trae N acompañantes → N + el invitado;
+    // en modo libre el campo ya incluye al invitado.
+    const totalGuests = !isAttending
+      ? 0
+      : cupo !== null
+        ? (attendance.startsWith('yes-') ? Number(attendance.slice(4)) + 1 : 1)
+        : Math.max(1, Number(companions) || 1);
+    // Formato del RSVP universal: el slug identifica al cliente y
+    // questionLabels define las columnas dinámicas de su hoja.
     const payload = {
+      slug: weddingSlug,
+      template: 'soho',
+      coupleNames,
+      questionLabels: questions.map((q) => q.label),
       guestName,
       attendance: isAttending ? 'yes' : 'no',
       attendanceDetail: attendanceLabel,
       companions: companionsCount,
+      totalGuests,
       cupo: cupo ?? '',
-      ...Object.fromEntries(answeredQuestions.map((q) => [q.label, q.value])),
+      answers: Object.fromEntries(answeredQuestions.map((q) => [q.label, q.value])),
     };
     const success = await submitRsvp(payload);
     setStatus(success ? FORM_STATUS.SUCCESS : FORM_STATUS.ERROR);

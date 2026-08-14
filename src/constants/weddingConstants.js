@@ -151,6 +151,11 @@ export const RSVP_GUESTS = [];
 export const FOOTER_MESSAGE = "Nos mueve el amor, nos une la familia.";
 export const FOOTER_CONTACT_EMAIL = "boda@sofiayalejandro2026.com";
 
+// ─── Identificador del cliente ────────────────────────────────────────────────
+// Lo usa el RSVP universal para crear/encontrar su hoja de respuestas.
+// Vacío → los envíos de RSVP se ignoran (ej. demo o preview del editor).
+export const WEDDING_SLUG = "";
+
 // ─── Paleta de colores ────────────────────────────────────────────────────────
 // null → paleta original de la plantilla. Para personalizarla:
 // { id: 'custom', bg: '#faf5ef', accent: '#c4985a', text: '#1e1610' }
