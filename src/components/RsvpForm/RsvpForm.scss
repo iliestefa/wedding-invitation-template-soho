@@ -40,3 +40,116 @@
     }
   }
 }
+
+.rsvp__success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 4rem 1rem;
+  text-align: center;
+}
+
+.rsvp__success-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border: 1px solid var(--color-gold);
+  border-radius: 50%;
+  font-size: 1.5rem;
+  color: var(--color-gold);
+}
+
+.rsvp__success-title {
+  font-family: $font-display;
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  font-weight: 400;
+  color: var(--color-text);
+  margin: 0;
+}
+
+.rsvp__success-text {
+  font-family: $font-script;
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--color-text-muted);
+  line-height: 1.7;
+  max-width: 420px;
+  margin: 0;
+}
+
+// ── Modo WhatsApp: dos botones directos, sin formulario ──────────────────────
+.rsvp__whatsapp-choice {
+  @include reveal-ready;
+  display: flex;
+  justify-content: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  // Acerca los botones al título: el SectionHeader deja un espacio pensado
+  // para un formulario largo, que acá queda demasiado grande sin él.
+  margin-top: -2rem;
+
+  @include mobile {
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: -1.5rem;
+  }
+}
+
+.rsvp__whatsapp-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  min-width: 220px;
+  font-family: $font-body;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 1.15rem 2rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color $dur-base $ease-out, color $dur-base $ease-out,
+    border-color $dur-base $ease-out, transform $dur-base $ease-out;
+
+  svg {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+  }
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+
+  @include mobile {
+    width: 100%;
+    min-width: 0;
+  }
+
+  &--yes {
+    background-color: var(--color-gold);
+    color: var(--color-bg);
+    border: 1px solid var(--color-gold);
+
+    &:hover {
+      background-color: var(--color-gold-light);
+      border-color: var(--color-gold-light);
+    }
+  }
+
+  &--no {
+    background-color: transparent;
+    color: var(--color-text-muted);
+    border: 1px solid var(--color-border, rgba(0, 0, 0, 0.15));
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.03);
+      color: var(--color-text);
+      border-color: var(--color-text-muted);
+    }
+  }
+}
