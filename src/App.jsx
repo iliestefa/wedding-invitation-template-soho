@@ -1,4 +1,4 @@
-import { TemplateProvider } from './context/TemplateContext';
+import { TemplateProvider, useTemplateData } from './context/TemplateContext';
 import Navigation from './components/Navigation/Navigation';
 import Hero from './components/Hero/Hero';
 import Story from './components/Story/Story';
@@ -12,20 +12,31 @@ import Footer from './components/Footer/Footer';
 
 import './App.scss';
 
-const App = () => (
-  <TemplateProvider>
+// Secciones opcionales que la pareja puede ocultar desde el editor Wedya:
+// llegan como ids en data.hiddenSections y simplemente no se renderizan.
+const AppSections = () => {
+  const { hiddenSections } = useTemplateData();
+  const isHidden = (sectionId) => hiddenSections?.includes(sectionId);
+
+  return (
     <div className="app">
       <Navigation />
       <Hero />
-      <Story />
+      {!isHidden('historia') && <Story />}
       <Countdown />
       <Events />
-      <Schedule />
-      <DressCode />
-      <GiftRegistry />
+      {!isHidden('cronograma') && <Schedule />}
+      {!isHidden('vestimenta') && <DressCode />}
+      {!isHidden('regalos') && <GiftRegistry />}
       <RsvpForm />
       <Footer />
     </div>
+  );
+};
+
+const App = () => (
+  <TemplateProvider>
+    <AppSections />
   </TemplateProvider>
 );
 
