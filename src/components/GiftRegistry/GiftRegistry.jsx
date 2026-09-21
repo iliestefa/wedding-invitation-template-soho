@@ -11,7 +11,7 @@ const GiftRegistry = () => {
   const { bankAccounts, giftRegistryIntro } = useTemplateData();
   const revealRef = useIntersectionObserver();
 
-  const accountCards = bankAccounts.map(({ id, bankName, ownerName, accountAlias, cbu, accountType, accountNumberLabel }) => (
+  const accountCards = bankAccounts.map(({ id, bankName, ownerName, accountAlias, cbu, accountType, accountNumberLabel, cedula }) => (
     <BankAccountCard
       key={id}
       bankName={bankName}
@@ -20,6 +20,7 @@ const GiftRegistry = () => {
       cbu={cbu}
       accountType={accountType}
       accountNumberLabel={accountNumberLabel}
+      cedula={cedula}
     />
   ));
 

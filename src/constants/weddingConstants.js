@@ -94,6 +94,7 @@ export const BANK_ACCOUNTS = [
     accountAlias: "Elena Toaza",
     cbu: "2206833330",
     accountNumberLabel: "N° de Cuenta",
+    cedula: "0950507897",
   },
   {
     id: "cuenta-guayaquil",
@@ -103,6 +104,7 @@ export const BANK_ACCOUNTS = [
     accountAlias: "Elena Toaza",
     cbu: "25047473",
     accountNumberLabel: "N° de Cuenta",
+    cedula: "0950507897",
   },
 ];
 

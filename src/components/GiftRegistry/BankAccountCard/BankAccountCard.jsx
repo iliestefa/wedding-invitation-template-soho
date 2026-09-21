@@ -5,9 +5,10 @@ import { copyToClipboard } from '../../../utils/formatters';
 
 import './BankAccountCard.scss';
 
-const BankAccountCard = ({ bankName, ownerName, accountAlias, cbu, accountType, accountNumberLabel }) => {
-  const [aliascopied, setAliasCopied] = useState(false);
-  const [cbuCopied, setCbuCopied]     = useState(false);
+const BankAccountCard = ({ bankName, ownerName, accountAlias, cbu, accountType, accountNumberLabel, cedula }) => {
+  const [aliascopied, setAliasCopied]   = useState(false);
+  const [cbuCopied, setCbuCopied]       = useState(false);
+  const [cedulaCopied, setCedulaCopied] = useState(false);
 
   const handleCopyAlias = async () => {
     const success = await copyToClipboard(accountAlias);
@@ -22,6 +23,14 @@ const BankAccountCard = ({ bankName, ownerName, accountAlias, cbu, accountType, 
     if (success) {
       setCbuCopied(true);
       setTimeout(() => setCbuCopied(false), 2200);
+    }
+  };
+
+  const handleCopyCedula = async () => {
+    const success = await copyToClipboard(cedula);
+    if (success) {
+      setCedulaCopied(true);
+      setTimeout(() => setCedulaCopied(false), 2200);
     }
   };
 
@@ -60,6 +69,20 @@ const BankAccountCard = ({ bankName, ownerName, accountAlias, cbu, accountType, 
             {cbuCopied ? 'Copiado ✓' : 'Copiar'}
           </button>
         </div>
+
+        {cedula && (
+          <div className="bank-card__field">
+            <span className="bank-card__field-label">Cédula</span>
+            <span className="bank-card__field-value bank-card__field-value--mono">{cedula}</span>
+            <button
+              className={`bank-card__copy ${cedulaCopied ? 'bank-card__copy--done' : ''}`}
+              onClick={handleCopyCedula}
+              aria-label={`Copiar cédula ${cedula}`}
+            >
+              {cedulaCopied ? 'Copiado ✓' : 'Copiar'}
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );
@@ -72,6 +95,7 @@ BankAccountCard.propTypes = {
   cbu:                PropTypes.string.isRequired,
   accountType:        PropTypes.string,
   accountNumberLabel: PropTypes.string,
+  cedula:             PropTypes.string,
 };
 
 export default BankAccountCard;
