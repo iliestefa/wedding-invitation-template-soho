@@ -19,7 +19,7 @@ export const CEREMONY_MAPS_EMBED_SRC =
   "https://maps.google.com/maps?q=Bas%C3%ADlica+Nuestra+Se%C3%B1ora+de+la+Merced+Guayaquil&output=embed&hl=es";
 
 // ─── Recepción ────────────────────────────────────────────────────────────────
-export const RECEPTION_TIME = "17:00 PM";
+export const RECEPTION_TIME = "16:30 PM";
 export const RECEPTION_VENUE_NAME = "Hotel Ibis Style\nTerraza";
 export const RECEPTION_VENUE_ADDRESS =
   "Av. Malecón Simón Bolívar S/N Calle Roca, Guayaquil, Ecuador";
@@ -27,6 +27,22 @@ export const RECEPTION_MAPS_LINK =
   "https://www.google.com/maps/place/Ibis+Styles+El+Malec%C3%B3n+Guayaquil/@-2.1898373,-79.8815675,17z/data=!4m20!1m10!3m9!1s0x902d6faab8a502e5:0xc59ee18fbf238dcb!2sIbis+Styles+El+Malec%C3%B3n+Guayaquil!5m2!4m1!1i2!8m2!3d-2.1898427!4d-79.8789926!16s%2Fg%2F11q3z0klp8!3m8!1s0x902d6faab8a502e5:0xc59ee18fbf238dcb!5m2!4m1!1i2!8m2!3d-2.1898427!4d-79.8789926!16s%2Fg%2F11q3z0klp8?entry=ttu&g_ep=EgoyMDI2MDYwMS4wIKXMDSoASAFQAw%3D%3D";
 export const RECEPTION_MAPS_EMBED_SRC =
   "https://maps.google.com/maps?q=Ibis%20Styles%20El%20Malec%C3%B3n%20Guayaquil&output=embed&hl=es";
+
+// ─── Bendición de las familias ───────────────────────────────────────────────
+export const BLESSING_INTRO = "Con la bendición de Dios\ny el amor de nuestras familias";
+
+export const BLESSING_PARENTS = [
+  {
+    id: "familia-novia",
+    names: "Narciza Oñate Bayas",
+    relation: "Madre de la novia",
+  },
+  {
+    id: "familia-novio",
+    names: "Cecilia Heredia & Andrés Piedra",
+    relation: "Padres del novio",
+  },
+];
 
 // ─── Historia ─────────────────────────────────────────────────────────────────
 export const STORY_INTRO =
@@ -58,9 +74,9 @@ export const SCHEDULE_ITEMS = [
   { id: "llegada", time: "13:30", label: "Llegada a la Iglesia", icon: "⛪" },
   { id: "ceremonia", time: "14:00", label: "Ceremonia Religiosa", icon: "💍" },
   { id: "fotos", time: "15:30", label: "Sesión de Fotos", icon: "📷" },
-  { id: "recepcion", time: "17:00", label: "Recepción", icon: "🥂" },
+  { id: "recepcion", time: "16:30", label: "Recepción", icon: "🥂" },
   { id: "cena", time: "19:00", label: "Cena", icon: "🍽️" },
-  { id: "baile", time: "23:30", label: "Pista de Baile", icon: "🎶" },
+  { id: "baile", time: "23:00", label: "Pista de Baile", icon: "🎶" },
 ];
 
 // ─── Dress Code ───────────────────────────────────────────────────────────────

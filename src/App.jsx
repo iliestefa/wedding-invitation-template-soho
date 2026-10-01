@@ -1,5 +1,6 @@
 import Navigation from './components/Navigation/Navigation';
 import Hero from './components/Hero/Hero';
+import Blessing from './components/Blessing/Blessing';
 import Story from './components/Story/Story';
 import Countdown from './components/Countdown/Countdown';
 import Events from './components/Events/Events';
@@ -16,6 +17,7 @@ const App = () => (
   <div className="app">
     <Navigation />
     <Hero />
+    <Blessing />
     <Story />
     <Countdown />
     <Events />
