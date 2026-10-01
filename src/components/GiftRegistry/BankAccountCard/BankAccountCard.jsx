@@ -5,18 +5,9 @@ import { copyToClipboard } from '../../../utils/formatters';
 
 import './BankAccountCard.scss';
 
-const BankAccountCard = ({ bankName, ownerName, accountAlias, cbu, accountType, accountNumberLabel, cedula }) => {
-  const [aliascopied, setAliasCopied]   = useState(false);
+const BankAccountCard = ({ bankName, ownerName, cbu, accountType, accountNumberLabel, cedula }) => {
   const [cbuCopied, setCbuCopied]       = useState(false);
   const [cedulaCopied, setCedulaCopied] = useState(false);
-
-  const handleCopyAlias = async () => {
-    const success = await copyToClipboard(accountAlias);
-    if (success) {
-      setAliasCopied(true);
-      setTimeout(() => setAliasCopied(false), 2200);
-    }
-  };
 
   const handleCopyCbu = async () => {
     const success = await copyToClipboard(cbu);
@@ -46,18 +37,6 @@ const BankAccountCard = ({ bankName, ownerName, accountAlias, cbu, accountType, 
       )}
 
       <div className="bank-card__fields">
-        <div className="bank-card__field">
-          <span className="bank-card__field-label">Alias</span>
-          <span className="bank-card__field-value">{accountAlias}</span>
-          <button
-            className={`bank-card__copy ${aliascopied ? 'bank-card__copy--done' : ''}`}
-            onClick={handleCopyAlias}
-            aria-label={`Copiar alias ${accountAlias}`}
-          >
-            {aliascopied ? 'Copiado ✓' : 'Copiar'}
-          </button>
-        </div>
-
         <div className="bank-card__field">
           <span className="bank-card__field-label">{accountNumberLabel || 'N° de Cuenta'}</span>
           <span className="bank-card__field-value bank-card__field-value--mono">{cbu}</span>
@@ -91,7 +70,6 @@ const BankAccountCard = ({ bankName, ownerName, accountAlias, cbu, accountType, 
 BankAccountCard.propTypes = {
   bankName:           PropTypes.string.isRequired,
   ownerName:          PropTypes.string.isRequired,
-  accountAlias:       PropTypes.string.isRequired,
   cbu:                PropTypes.string.isRequired,
   accountType:        PropTypes.string,
   accountNumberLabel: PropTypes.string,
