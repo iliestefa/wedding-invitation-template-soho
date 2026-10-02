@@ -39,7 +39,7 @@ export const BLESSING_PARENTS = [
   },
   {
     id: "familia-novio",
-    names: "Cecilia Heredia & Andrés Piedra",
+    names: "Cecilia Heredia Reyes &\nAndrés Piedra Pinto",
     relation: "Padres del novio",
   },
 ];

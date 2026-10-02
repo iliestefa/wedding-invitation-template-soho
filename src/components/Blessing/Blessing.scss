@@ -47,6 +47,7 @@
     font-size: clamp(1.05rem, 2vw, 1.25rem);
     color: $color-text;
     margin-bottom: 0.4rem;
+    white-space: pre-line;
   }
 
   &__relation {
