@@ -19,7 +19,7 @@ export const CEREMONY_MAPS_EMBED_SRC =
   "https://maps.google.com/maps?q=Bas%C3%ADlica+Nuestra+Se%C3%B1ora+de+la+Merced+Guayaquil&output=embed&hl=es";
 
 // ─── Recepción ────────────────────────────────────────────────────────────────
-export const RECEPTION_TIME = "16:30 PM";
+export const RECEPTION_TIME = "16:00 PM";
 export const RECEPTION_VENUE_NAME = "Hotel Ibis Style\nTerraza";
 export const RECEPTION_VENUE_ADDRESS =
   "Av. Malecón Simón Bolívar S/N Calle Roca, Guayaquil, Ecuador";
@@ -74,9 +74,9 @@ export const SCHEDULE_ITEMS = [
   { id: "llegada", time: "13:30", label: "Llegada a la Iglesia", icon: "⛪" },
   { id: "ceremonia", time: "14:00", label: "Ceremonia Religiosa", icon: "💍" },
   { id: "fotos", time: "15:30", label: "Sesión de Fotos", icon: "📷" },
-  { id: "recepcion", time: "16:30", label: "Recepción", icon: "🥂" },
-  { id: "cena", time: "19:00", label: "Cena", icon: "🍽️" },
-  { id: "baile", time: "23:00", label: "Pista de Baile", icon: "🎶" },
+  { id: "recepcion", time: "16:00", label: "Recepción", icon: "🥂" },
+  { id: "cena", time: "18:00", label: "Cena", icon: "🍽️" },
+  { id: "baile", time: "22:00", label: "Pista de Baile", icon: "🎶" },
 ];
 
 // ─── Dress Code ───────────────────────────────────────────────────────────────
