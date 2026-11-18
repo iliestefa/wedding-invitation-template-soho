@@ -53,5 +53,6 @@
   &__relation {
     @include eyebrow;
     color: $color-text-muted;
+    white-space: pre-line;
   }
 }

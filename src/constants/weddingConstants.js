@@ -34,8 +34,13 @@ export const BLESSING_INTRO = "Con la bendición de Dios\ny el amor de nuestras 
 export const BLESSING_PARENTS = [
   {
     id: "familia-novia",
-    names: "Narciza Oñate Bayas",
-    relation: "Madre de la novia",
+    names: "Narciza Oñate Bayas &\n✝ William Toaza López",
+    relation: "Padres de la novia",
+  },
+  {
+    id: "hermano-novia",
+    names: "Lenin Toaza Oñate",
+    relation: "Hermano de la novia",
   },
   {
     id: "familia-novio",
