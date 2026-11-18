@@ -20,7 +20,7 @@ export const CEREMONY_MAPS_EMBED_SRC =
 
 // ─── Recepción ────────────────────────────────────────────────────────────────
 export const RECEPTION_TIME = "16:00 PM";
-export const RECEPTION_VENUE_NAME = "Hotel Ibis Style\nTerraza";
+export const RECEPTION_VENUE_NAME = "Hotel Ibis Style\nMezzanine";
 export const RECEPTION_VENUE_ADDRESS =
   "Av. Malecón Simón Bolívar S/N Calle Roca, Guayaquil, Ecuador";
 export const RECEPTION_MAPS_LINK =
@@ -81,7 +81,7 @@ export const SCHEDULE_ITEMS = [
   { id: "fotos", time: "15:30", label: "Sesión de Fotos", icon: "📷" },
   { id: "recepcion", time: "16:00", label: "Recepción", icon: "🥂" },
   { id: "cena", time: "18:00", label: "Cena", icon: "🍽️" },
-  { id: "baile", time: "22:00", label: "Pista de Baile", icon: "🎶" },
+  { id: "baile", time: "22:30", label: "Pista de Baile", icon: "🎶" },
 ];
 
 // ─── Dress Code ───────────────────────────────────────────────────────────────
